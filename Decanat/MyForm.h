@@ -199,8 +199,8 @@ public: System::Windows::Forms::Label^  label27;
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::TreeView^  treeView1;
-			System::Windows::Forms::TreeNode^  treeNode5 = (gcnew System::Windows::Forms::TreeNode(L"Выбраны студенты"));
-			System::Windows::Forms::TreeNode^  treeNode6 = (gcnew System::Windows::Forms::TreeNode(L"Предметы"));
+			System::Windows::Forms::TreeNode^  treeNode1 = (gcnew System::Windows::Forms::TreeNode(L"Выбраны студенты"));
+			System::Windows::Forms::TreeNode^  treeNode2 = (gcnew System::Windows::Forms::TreeNode(L"Предметы"));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
@@ -298,6 +298,21 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
 			this->treeView6 = (gcnew System::Windows::Forms::TreeView());
 			this->treeView5 = (gcnew System::Windows::Forms::TreeView());
+			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox9 = (gcnew System::Windows::Forms::GroupBox());
+			this->comboBox10 = (gcnew System::Windows::Forms::ComboBox());
+			this->label31 = (gcnew System::Windows::Forms::Label());
+			this->label30 = (gcnew System::Windows::Forms::Label());
+			this->listBox3 = (gcnew System::Windows::Forms::ListBox());
+			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
+			this->button16 = (gcnew System::Windows::Forms::Button());
+			this->button17 = (gcnew System::Windows::Forms::Button());
+			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
+			this->label29 = (gcnew System::Windows::Forms::Label());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->button15 = (gcnew System::Windows::Forms::Button());
+			this->button14 = (gcnew System::Windows::Forms::Button());
+			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
 			this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
 			this->toolStripStatusLabel1 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
@@ -307,21 +322,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->настройкиToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->помощьToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->оПрограммеToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
-			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
-			this->groupBox9 = (gcnew System::Windows::Forms::GroupBox());
-			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
-			this->button14 = (gcnew System::Windows::Forms::Button());
-			this->button15 = (gcnew System::Windows::Forms::Button());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->label29 = (gcnew System::Windows::Forms::Label());
-			this->listBox3 = (gcnew System::Windows::Forms::ListBox());
-			this->button16 = (gcnew System::Windows::Forms::Button());
-			this->button17 = (gcnew System::Windows::Forms::Button());
-			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
-			this->label30 = (gcnew System::Windows::Forms::Label());
-			this->label31 = (gcnew System::Windows::Forms::Label());
-			this->comboBox10 = (gcnew System::Windows::Forms::ComboBox());
 			treeView1 = (gcnew System::Windows::Forms::TreeView());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -335,11 +335,11 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox7->SuspendLayout();
 			this->groupBox6->SuspendLayout();
 			this->groupBox5->SuspendLayout();
+			this->tabPage5->SuspendLayout();
+			this->groupBox9->SuspendLayout();
+			this->groupBox8->SuspendLayout();
 			this->statusStrip1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
-			this->tabPage5->SuspendLayout();
-			this->groupBox8->SuspendLayout();
-			this->groupBox9->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// treeView1
@@ -862,9 +862,9 @@ public: System::Windows::Forms::Label^  label27;
 			// 
 			this->treeView3->Location = System::Drawing::Point(254, 34);
 			this->treeView3->Name = L"treeView3";
-			treeNode5->Name = L"Root";
-			treeNode5->Text = L"Выбраны студенты";
-			this->treeView3->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode5 });
+			treeNode1->Name = L"Root";
+			treeNode1->Text = L"Выбраны студенты";
+			this->treeView3->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode1 });
 			this->treeView3->Size = System::Drawing::Size(240, 411);
 			this->treeView3->TabIndex = 5;
 			this->treeView3->AfterSelect += gcnew System::Windows::Forms::TreeViewEventHandler(this, &MyForm::treeView3_AfterSelect);
@@ -1042,9 +1042,9 @@ public: System::Windows::Forms::Label^  label27;
 			// 
 			this->treeView4->Location = System::Drawing::Point(9, 46);
 			this->treeView4->Name = L"treeView4";
-			treeNode6->Name = L"Root";
-			treeNode6->Text = L"Предметы";
-			this->treeView4->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode6 });
+			treeNode2->Name = L"Root";
+			treeNode2->Text = L"Предметы";
+			this->treeView4->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode2 });
 			this->treeView4->Size = System::Drawing::Size(336, 352);
 			this->treeView4->TabIndex = 4;
 			// 
@@ -1297,6 +1297,150 @@ public: System::Windows::Forms::Label^  label27;
 			this->treeView5->Size = System::Drawing::Size(271, 444);
 			this->treeView5->TabIndex = 0;
 			// 
+			// tabPage5
+			// 
+			this->tabPage5->BackColor = System::Drawing::Color::Transparent;
+			this->tabPage5->Controls->Add(this->groupBox9);
+			this->tabPage5->Controls->Add(this->groupBox8);
+			this->tabPage5->Location = System::Drawing::Point(4, 22);
+			this->tabPage5->Name = L"tabPage5";
+			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage5->Size = System::Drawing::Size(888, 494);
+			this->tabPage5->TabIndex = 4;
+			this->tabPage5->Text = L"Направления";
+			this->tabPage5->Click += gcnew System::EventHandler(this, &MyForm::tabPage5_Click);
+			// 
+			// groupBox9
+			// 
+			this->groupBox9->Controls->Add(this->comboBox10);
+			this->groupBox9->Controls->Add(this->label31);
+			this->groupBox9->Controls->Add(this->label30);
+			this->groupBox9->Controls->Add(this->listBox3);
+			this->groupBox9->Controls->Add(this->textBox18);
+			this->groupBox9->Controls->Add(this->button16);
+			this->groupBox9->Controls->Add(this->button17);
+			this->groupBox9->Location = System::Drawing::Point(345, 6);
+			this->groupBox9->Name = L"groupBox9";
+			this->groupBox9->Size = System::Drawing::Size(331, 482);
+			this->groupBox9->TabIndex = 0;
+			this->groupBox9->TabStop = false;
+			this->groupBox9->Text = L"Работа с профилями";
+			// 
+			// comboBox10
+			// 
+			this->comboBox10->FormattingEnabled = true;
+			this->comboBox10->Location = System::Drawing::Point(17, 50);
+			this->comboBox10->Name = L"comboBox10";
+			this->comboBox10->Size = System::Drawing::Size(308, 21);
+			this->comboBox10->TabIndex = 5;
+			// 
+			// label31
+			// 
+			this->label31->AutoSize = true;
+			this->label31->Location = System::Drawing::Point(20, 26);
+			this->label31->Name = L"label31";
+			this->label31->Size = System::Drawing::Size(126, 13);
+			this->label31->TabIndex = 4;
+			this->label31->Text = L"Выберите направление";
+			// 
+			// label30
+			// 
+			this->label30->AutoSize = true;
+			this->label30->Location = System::Drawing::Point(14, 425);
+			this->label30->Name = L"label30";
+			this->label30->Size = System::Drawing::Size(57, 13);
+			this->label30->TabIndex = 3;
+			this->label30->Text = L"Название";
+			// 
+			// listBox3
+			// 
+			this->listBox3->FormattingEnabled = true;
+			this->listBox3->Location = System::Drawing::Point(17, 88);
+			this->listBox3->Name = L"listBox3";
+			this->listBox3->Size = System::Drawing::Size(308, 329);
+			this->listBox3->TabIndex = 0;
+			// 
+			// textBox18
+			// 
+			this->textBox18->Location = System::Drawing::Point(72, 422);
+			this->textBox18->Name = L"textBox18";
+			this->textBox18->Size = System::Drawing::Size(253, 20);
+			this->textBox18->TabIndex = 2;
+			// 
+			// button16
+			// 
+			this->button16->Location = System::Drawing::Point(17, 448);
+			this->button16->Name = L"button16";
+			this->button16->Size = System::Drawing::Size(146, 28);
+			this->button16->TabIndex = 1;
+			this->button16->Text = L"Добавить";
+			this->button16->UseVisualStyleBackColor = true;
+			// 
+			// button17
+			// 
+			this->button17->Location = System::Drawing::Point(169, 448);
+			this->button17->Name = L"button17";
+			this->button17->Size = System::Drawing::Size(156, 28);
+			this->button17->TabIndex = 1;
+			this->button17->Text = L"Удалить";
+			this->button17->UseVisualStyleBackColor = true;
+			// 
+			// groupBox8
+			// 
+			this->groupBox8->Controls->Add(this->label29);
+			this->groupBox8->Controls->Add(this->textBox4);
+			this->groupBox8->Controls->Add(this->button15);
+			this->groupBox8->Controls->Add(this->button14);
+			this->groupBox8->Controls->Add(this->listBox2);
+			this->groupBox8->Location = System::Drawing::Point(8, 6);
+			this->groupBox8->Name = L"groupBox8";
+			this->groupBox8->Size = System::Drawing::Size(331, 482);
+			this->groupBox8->TabIndex = 0;
+			this->groupBox8->TabStop = false;
+			this->groupBox8->Text = L"Работа с направлениями";
+			// 
+			// label29
+			// 
+			this->label29->AutoSize = true;
+			this->label29->Location = System::Drawing::Point(10, 425);
+			this->label29->Name = L"label29";
+			this->label29->Size = System::Drawing::Size(57, 13);
+			this->label29->TabIndex = 3;
+			this->label29->Text = L"Название";
+			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(68, 422);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(253, 20);
+			this->textBox4->TabIndex = 2;
+			// 
+			// button15
+			// 
+			this->button15->Location = System::Drawing::Point(165, 448);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(156, 28);
+			this->button15->TabIndex = 1;
+			this->button15->Text = L"Удалить";
+			this->button15->UseVisualStyleBackColor = true;
+			// 
+			// button14
+			// 
+			this->button14->Location = System::Drawing::Point(13, 448);
+			this->button14->Name = L"button14";
+			this->button14->Size = System::Drawing::Size(146, 28);
+			this->button14->TabIndex = 1;
+			this->button14->Text = L"Добавить";
+			this->button14->UseVisualStyleBackColor = true;
+			// 
+			// listBox2
+			// 
+			this->listBox2->FormattingEnabled = true;
+			this->listBox2->Location = System::Drawing::Point(13, 23);
+			this->listBox2->Name = L"listBox2";
+			this->listBox2->Size = System::Drawing::Size(308, 394);
+			this->listBox2->TabIndex = 0;
+			// 
 			// statusStrip1
 			// 
 			this->statusStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripStatusLabel1 });
@@ -1364,150 +1508,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->оПрограммеToolStripMenuItem->Size = System::Drawing::Size(149, 22);
 			this->оПрограммеToolStripMenuItem->Text = L"О программе";
 			// 
-			// tabPage5
-			// 
-			this->tabPage5->BackColor = System::Drawing::Color::Transparent;
-			this->tabPage5->Controls->Add(this->groupBox9);
-			this->tabPage5->Controls->Add(this->groupBox8);
-			this->tabPage5->Location = System::Drawing::Point(4, 22);
-			this->tabPage5->Name = L"tabPage5";
-			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(888, 494);
-			this->tabPage5->TabIndex = 4;
-			this->tabPage5->Text = L"Направления";
-			this->tabPage5->Click += gcnew System::EventHandler(this, &MyForm::tabPage5_Click);
-			// 
-			// groupBox8
-			// 
-			this->groupBox8->Controls->Add(this->label29);
-			this->groupBox8->Controls->Add(this->textBox4);
-			this->groupBox8->Controls->Add(this->button15);
-			this->groupBox8->Controls->Add(this->button14);
-			this->groupBox8->Controls->Add(this->listBox2);
-			this->groupBox8->Location = System::Drawing::Point(8, 6);
-			this->groupBox8->Name = L"groupBox8";
-			this->groupBox8->Size = System::Drawing::Size(331, 482);
-			this->groupBox8->TabIndex = 0;
-			this->groupBox8->TabStop = false;
-			this->groupBox8->Text = L"Работа с направлениями";
-			// 
-			// groupBox9
-			// 
-			this->groupBox9->Controls->Add(this->comboBox10);
-			this->groupBox9->Controls->Add(this->label31);
-			this->groupBox9->Controls->Add(this->label30);
-			this->groupBox9->Controls->Add(this->listBox3);
-			this->groupBox9->Controls->Add(this->textBox18);
-			this->groupBox9->Controls->Add(this->button16);
-			this->groupBox9->Controls->Add(this->button17);
-			this->groupBox9->Location = System::Drawing::Point(345, 6);
-			this->groupBox9->Name = L"groupBox9";
-			this->groupBox9->Size = System::Drawing::Size(331, 482);
-			this->groupBox9->TabIndex = 0;
-			this->groupBox9->TabStop = false;
-			this->groupBox9->Text = L"Работа с профилями";
-			// 
-			// listBox2
-			// 
-			this->listBox2->FormattingEnabled = true;
-			this->listBox2->Location = System::Drawing::Point(13, 23);
-			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(308, 394);
-			this->listBox2->TabIndex = 0;
-			// 
-			// button14
-			// 
-			this->button14->Location = System::Drawing::Point(13, 448);
-			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(146, 28);
-			this->button14->TabIndex = 1;
-			this->button14->Text = L"Добавить";
-			this->button14->UseVisualStyleBackColor = true;
-			// 
-			// button15
-			// 
-			this->button15->Location = System::Drawing::Point(165, 448);
-			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(156, 28);
-			this->button15->TabIndex = 1;
-			this->button15->Text = L"Удалить";
-			this->button15->UseVisualStyleBackColor = true;
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(68, 422);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(253, 20);
-			this->textBox4->TabIndex = 2;
-			// 
-			// label29
-			// 
-			this->label29->AutoSize = true;
-			this->label29->Location = System::Drawing::Point(10, 425);
-			this->label29->Name = L"label29";
-			this->label29->Size = System::Drawing::Size(57, 13);
-			this->label29->TabIndex = 3;
-			this->label29->Text = L"Название";
-			// 
-			// listBox3
-			// 
-			this->listBox3->FormattingEnabled = true;
-			this->listBox3->Location = System::Drawing::Point(17, 88);
-			this->listBox3->Name = L"listBox3";
-			this->listBox3->Size = System::Drawing::Size(308, 329);
-			this->listBox3->TabIndex = 0;
-			// 
-			// button16
-			// 
-			this->button16->Location = System::Drawing::Point(17, 448);
-			this->button16->Name = L"button16";
-			this->button16->Size = System::Drawing::Size(146, 28);
-			this->button16->TabIndex = 1;
-			this->button16->Text = L"Добавить";
-			this->button16->UseVisualStyleBackColor = true;
-			// 
-			// button17
-			// 
-			this->button17->Location = System::Drawing::Point(169, 448);
-			this->button17->Name = L"button17";
-			this->button17->Size = System::Drawing::Size(156, 28);
-			this->button17->TabIndex = 1;
-			this->button17->Text = L"Удалить";
-			this->button17->UseVisualStyleBackColor = true;
-			// 
-			// textBox18
-			// 
-			this->textBox18->Location = System::Drawing::Point(72, 422);
-			this->textBox18->Name = L"textBox18";
-			this->textBox18->Size = System::Drawing::Size(253, 20);
-			this->textBox18->TabIndex = 2;
-			// 
-			// label30
-			// 
-			this->label30->AutoSize = true;
-			this->label30->Location = System::Drawing::Point(14, 425);
-			this->label30->Name = L"label30";
-			this->label30->Size = System::Drawing::Size(57, 13);
-			this->label30->TabIndex = 3;
-			this->label30->Text = L"Название";
-			// 
-			// label31
-			// 
-			this->label31->AutoSize = true;
-			this->label31->Location = System::Drawing::Point(20, 26);
-			this->label31->Name = L"label31";
-			this->label31->Size = System::Drawing::Size(126, 13);
-			this->label31->TabIndex = 4;
-			this->label31->Text = L"Выберите направление";
-			// 
-			// comboBox10
-			// 
-			this->comboBox10->FormattingEnabled = true;
-			this->comboBox10->Location = System::Drawing::Point(17, 50);
-			this->comboBox10->Name = L"comboBox10";
-			this->comboBox10->Size = System::Drawing::Size(308, 21);
-			this->comboBox10->TabIndex = 5;
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1521,7 +1521,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->MaximizeBox = false;
 			this->Name = L"MyForm";
 			this->Text = L"Система учета студентов - ДЕКАНАТ";
-			this->Activated += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
@@ -1545,15 +1544,15 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox6->PerformLayout();
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox5->PerformLayout();
+			this->tabPage5->ResumeLayout(false);
+			this->groupBox9->ResumeLayout(false);
+			this->groupBox9->PerformLayout();
+			this->groupBox8->ResumeLayout(false);
+			this->groupBox8->PerformLayout();
 			this->statusStrip1->ResumeLayout(false);
 			this->statusStrip1->PerformLayout();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			this->tabPage5->ResumeLayout(false);
-			this->groupBox8->ResumeLayout(false);
-			this->groupBox8->PerformLayout();
-			this->groupBox9->ResumeLayout(false);
-			this->groupBox9->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1561,19 +1560,20 @@ public: System::Windows::Forms::Label^  label27;
 
 		
 #pragma endregion
-		public: char * StrToChar(String ^s) {
+public: char * StrToChar(String ^s) {
 
 			IntPtr ptrToNativeString = Marshal::StringToHGlobalAnsi(s);
 			char* nativeString = static_cast<char*>(ptrToNativeString.ToPointer());		
 			return nativeString;
 		}
-
+public: void Mess(String ^s) {
+	MessageBox::Show(s, "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Information);
+}
 
 public: void LoadTree() {
-	MYSQL_RES *res;
+	/*MYSQL_RES *res;
 	MYSQL_ROW row;
 
-//	D->mydb->RawSQL("insert into aspirant(fio,Direction)Values('Привет','05.13.19.')");
 	D->mydb->RawSQL("select data from Exam");
 	res = D->mydb->res;
 
@@ -1581,6 +1581,7 @@ public: void LoadTree() {
 		String ^s = gcnew String(row[0]);
 		this->listBox1->Items->Add(s);
 	}
+	*/
 }
 public: void LoadProfiles1(/*Загружает профили в выпадающий список*/) {
 	MYSQL_RES *res;
@@ -1588,8 +1589,7 @@ public: void LoadProfiles1(/*Загружает профили в выпадающий список*/) {
 	String ^s,^d;
 	
 	this->comboBox8->Items->Clear();
-	this->comboBox8->Text = "";
-	this->Text = "ok";
+	this->comboBox8->Text = "";	
 	if (this->comboBox9->SelectedIndex == -1) return;
 	s = this->comboBox9->SelectedItem->ToString();
 
@@ -1618,10 +1618,54 @@ public: void LoadDirections() {
 			s = gcnew String(row[1]);			
 			this->comboBox9->Items->Add(s);					
 	}
+}
+public: void AddStudent() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s, ^d,^p;
+
+	d = gcnew String("");
+	d = "select id, codename from Directions where codename='" + this->comboBox9->SelectedItem + "'";
+	D->mydb->RawSQL(StrToChar(d));	
+	d = "-1";
+	res = D->mydb->res;
+	while ((row = mysql_fetch_row(res))) {
+		d = gcnew String(row[0]);
+	}
+
+	p = gcnew String("");
+	p = "select id,name from Profiles where name='" + this->comboBox8->SelectedItem + "'";
+	D->mydb->RawSQL(StrToChar(p));
+	p = "-1";
+	res = D->mydb->res;
+	while ((row = mysql_fetch_row(res))) {
+		p = gcnew String(row[0]);
+	}
 
 
+	s = "insert into Students(fio, birth, sex, directId, profileId, edu_start, edu_stop, cafedra, manager, hostel, status, edu_vid, edu_base, country, email, tel) Values('" +
+		this->textBox1->Text + "','" + //fio 
+		this->textBox2->Text + "','" + //groupe
+		this->comboBox1->SelectedIndex + "'," + //sex
+		d + "," + //direct
+		p + ",'" + //profile
+		this->textBox5->Text + "','" + //edustart
+		this->textBox6->Text + "','" + //edu stop
+		this->textBox7->Text + "','" + //caf
+		this->textBox8->Text + "'," +// manager
+		this->comboBox5->SelectedIndex + "," + //hostel
+		this->comboBox2->SelectedIndex + "," + //status
+		this->comboBox3->SelectedIndex + "," + // vid (ochno)
+		this->comboBox4->SelectedIndex + ",'" + // base
+		this->textBox3->Text + "','" + //country
+		this->textBox10->Text + "','" + //email
+		this->textBox11->Text + "');";	//tel		
+
+	D->mydb->RawSQL(StrToChar(s));
 
 }
+
+
 
 public: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
 	}
@@ -1635,19 +1679,19 @@ public: System::Void выходToolStripMenuItem_Click(System::Object^  sender, Syste
 }
 
 public: System::Void MyForm_Activated(System::Object^  sender, System::EventArgs^  e) {
+	
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	//LoadTree();
 	//D->ClearTables();	
-	LoadDirections();
+	
 	//LoadProfiles1();
 
 }
-private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-	
-}
+
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	D = new Decan();
+	LoadDirections();
 }
 private: System::Void tabControl1_EnabledChanged(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -1675,6 +1719,10 @@ private: System::Void button13_Click(System::Object^  sender, System::EventArgs^
 	 
 }
 private: System::Void tabPage5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+	AddStudent();
+
 }
 };
 
