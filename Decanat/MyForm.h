@@ -199,8 +199,8 @@ public: System::Windows::Forms::Label^  label27;
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::TreeView^  treeView1;
-			System::Windows::Forms::TreeNode^  treeNode3 = (gcnew System::Windows::Forms::TreeNode(L"Выбраны студенты"));
-			System::Windows::Forms::TreeNode^  treeNode4 = (gcnew System::Windows::Forms::TreeNode(L"Предметы"));
+			System::Windows::Forms::TreeNode^  treeNode5 = (gcnew System::Windows::Forms::TreeNode(L"Выбраны студенты"));
+			System::Windows::Forms::TreeNode^  treeNode6 = (gcnew System::Windows::Forms::TreeNode(L"Предметы"));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
@@ -862,9 +862,9 @@ public: System::Windows::Forms::Label^  label27;
 			// 
 			this->treeView3->Location = System::Drawing::Point(254, 34);
 			this->treeView3->Name = L"treeView3";
-			treeNode3->Name = L"Root";
-			treeNode3->Text = L"Выбраны студенты";
-			this->treeView3->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode3 });
+			treeNode5->Name = L"Root";
+			treeNode5->Text = L"Выбраны студенты";
+			this->treeView3->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode5 });
 			this->treeView3->Size = System::Drawing::Size(240, 411);
 			this->treeView3->TabIndex = 5;
 			this->treeView3->AfterSelect += gcnew System::Windows::Forms::TreeViewEventHandler(this, &MyForm::treeView3_AfterSelect);
@@ -1042,9 +1042,9 @@ public: System::Windows::Forms::Label^  label27;
 			// 
 			this->treeView4->Location = System::Drawing::Point(9, 46);
 			this->treeView4->Name = L"treeView4";
-			treeNode4->Name = L"Root";
-			treeNode4->Text = L"Предметы";
-			this->treeView4->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode4 });
+			treeNode6->Name = L"Root";
+			treeNode6->Text = L"Предметы";
+			this->treeView4->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode6 });
 			this->treeView4->Size = System::Drawing::Size(336, 352);
 			this->treeView4->TabIndex = 4;
 			// 
@@ -1375,6 +1375,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->tabPage5->Size = System::Drawing::Size(888, 494);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Направления";
+			this->tabPage5->Click += gcnew System::EventHandler(this, &MyForm::tabPage5_Click);
 			// 
 			// groupBox8
 			// 
@@ -1671,7 +1672,9 @@ private: System::Void comboBox9_SelectedIndexChanged(System::Object^  sender, Sy
 }
 private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
 
-
+	 
+}
+private: System::Void tabPage5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 
