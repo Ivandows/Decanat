@@ -42,6 +42,8 @@ namespace Decanat {
 	private: System::Windows::Forms::TextBox^  textBox18;
 	private: System::Windows::Forms::Button^  button16;
 	private: System::Windows::Forms::Button^  button17;
+	private: System::Windows::Forms::Label^  label32;
+	private: System::Windows::Forms::TextBox^  textBox27;
 
 
 	public:
@@ -308,7 +310,9 @@ public: System::Windows::Forms::Label^  label27;
 			this->button16 = (gcnew System::Windows::Forms::Button());
 			this->button17 = (gcnew System::Windows::Forms::Button());
 			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
+			this->label32 = (gcnew System::Windows::Forms::Label());
 			this->label29 = (gcnew System::Windows::Forms::Label());
+			this->textBox27 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->button14 = (gcnew System::Windows::Forms::Button());
@@ -349,6 +353,7 @@ public: System::Windows::Forms::Label^  label27;
 			treeView1->Name = L"treeView1";
 			treeView1->Size = System::Drawing::Size(227, 446);
 			treeView1->TabIndex = 0;
+			treeView1->TabStop = false;
 			// 
 			// tabControl1
 			// 
@@ -383,6 +388,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(227, 20);
 			this->textBox9->TabIndex = 4;
+			this->textBox9->TabStop = false;
 			// 
 			// groupBox1
 			// 
@@ -434,7 +440,8 @@ public: System::Windows::Forms::Label^  label27;
 			this->button13->Location = System::Drawing::Point(317, 449);
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(75, 23);
-			this->button13->TabIndex = 8;
+			this->button13->TabIndex = 0;
+			this->button13->TabStop = false;
 			this->button13->Text = L"button13";
 			this->button13->UseVisualStyleBackColor = true;
 			this->button13->Click += gcnew System::EventHandler(this, &MyForm::button13_Click);
@@ -445,7 +452,8 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox9->Location = System::Drawing::Point(124, 97);
 			this->comboBox9->Name = L"comboBox9";
 			this->comboBox9->Size = System::Drawing::Size(180, 21);
-			this->comboBox9->TabIndex = 7;
+			this->comboBox9->Sorted = true;
+			this->comboBox9->TabIndex = 4;
 			this->comboBox9->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox9_SelectedIndexChanged);
 			// 
 			// comboBox8
@@ -454,7 +462,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox8->Location = System::Drawing::Point(124, 123);
 			this->comboBox8->Name = L"comboBox8";
 			this->comboBox8->Size = System::Drawing::Size(180, 21);
-			this->comboBox8->TabIndex = 6;
+			this->comboBox8->TabIndex = 5;
 			// 
 			// comboBox4
 			// 
@@ -463,7 +471,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox4->Location = System::Drawing::Point(124, 329);
 			this->comboBox4->Name = L"comboBox4";
 			this->comboBox4->Size = System::Drawing::Size(180, 21);
-			this->comboBox4->TabIndex = 5;
+			this->comboBox4->TabIndex = 13;
 			this->comboBox4->Text = L"Бюджет/Коммерческий";
 			// 
 			// comboBox3
@@ -473,7 +481,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox3->Location = System::Drawing::Point(124, 303);
 			this->comboBox3->Name = L"comboBox3";
 			this->comboBox3->Size = System::Drawing::Size(180, 21);
-			this->comboBox3->TabIndex = 5;
+			this->comboBox3->TabIndex = 12;
 			this->comboBox3->Text = L"Очно/Заочно";
 			// 
 			// comboBox5
@@ -483,7 +491,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox5->Location = System::Drawing::Point(124, 251);
 			this->comboBox5->Name = L"comboBox5";
 			this->comboBox5->Size = System::Drawing::Size(180, 21);
-			this->comboBox5->TabIndex = 5;
+			this->comboBox5->TabIndex = 10;
 			this->comboBox5->Text = L"Заселен/Нуждается";
 			// 
 			// comboBox2
@@ -493,7 +501,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox2->Location = System::Drawing::Point(124, 277);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(180, 21);
-			this->comboBox2->TabIndex = 5;
+			this->comboBox2->TabIndex = 11;
 			this->comboBox2->Text = L"Учится/Отчислен";
 			// 
 			// comboBox1
@@ -503,7 +511,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox1->Location = System::Drawing::Point(124, 70);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(180, 21);
-			this->comboBox1->TabIndex = 5;
+			this->comboBox1->TabIndex = 3;
 			this->comboBox1->Text = L"Мужской/Женский";
 			// 
 			// button4
@@ -511,7 +519,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button4->Location = System::Drawing::Point(26, 446);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(125, 26);
-			this->button4->TabIndex = 4;
+			this->button4->TabIndex = 17;
 			this->button4->Text = L"Добавить";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
@@ -521,7 +529,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button3->Location = System::Drawing::Point(157, 446);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(147, 26);
-			this->button3->TabIndex = 4;
+			this->button3->TabIndex = 18;
 			this->button3->Text = L"Изменить";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
@@ -543,13 +551,14 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox2->TabIndex = 3;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Приказы";
+			this->groupBox2->Enter += gcnew System::EventHandler(this, &MyForm::groupBox2_Enter);
 			// 
 			// button2
 			// 
 			this->button2->Location = System::Drawing::Point(160, 310);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(115, 24);
-			this->button2->TabIndex = 6;
+			this->button2->TabIndex = 23;
 			this->button2->Text = L"Удалить";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
@@ -558,7 +567,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button1->Location = System::Drawing::Point(20, 310);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(130, 25);
-			this->button1->TabIndex = 5;
+			this->button1->TabIndex = 22;
 			this->button1->Text = L"Добавить";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
@@ -567,21 +576,21 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox15->Location = System::Drawing::Point(88, 283);
 			this->textBox15->Name = L"textBox15";
 			this->textBox15->Size = System::Drawing::Size(188, 20);
-			this->textBox15->TabIndex = 4;
+			this->textBox15->TabIndex = 21;
 			// 
 			// textBox14
 			// 
 			this->textBox14->Location = System::Drawing::Point(88, 261);
 			this->textBox14->Name = L"textBox14";
 			this->textBox14->Size = System::Drawing::Size(188, 20);
-			this->textBox14->TabIndex = 4;
+			this->textBox14->TabIndex = 20;
 			// 
 			// textBox13
 			// 
 			this->textBox13->Location = System::Drawing::Point(88, 238);
 			this->textBox13->Name = L"textBox13";
 			this->textBox13->Size = System::Drawing::Size(188, 20);
-			this->textBox13->TabIndex = 4;
+			this->textBox13->TabIndex = 19;
 			// 
 			// listBox1
 			// 
@@ -590,7 +599,8 @@ public: System::Windows::Forms::Label^  label27;
 			this->listBox1->Location = System::Drawing::Point(16, 21);
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(260, 199);
-			this->listBox1->TabIndex = 3;
+			this->listBox1->TabIndex = 100;
+			this->listBox1->TabStop = false;
 			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::listBox1_SelectedIndexChanged);
 			// 
 			// label15
@@ -641,7 +651,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox2->Location = System::Drawing::Point(124, 45);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(180, 20);
-			this->textBox2->TabIndex = 1;
+			this->textBox2->TabIndex = 2;
 			// 
 			// label11
 			// 
@@ -675,7 +685,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox5->Location = System::Drawing::Point(124, 147);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(180, 20);
-			this->textBox5->TabIndex = 1;
+			this->textBox5->TabIndex = 6;
 			// 
 			// label8
 			// 
@@ -691,7 +701,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox6->Location = System::Drawing::Point(124, 173);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(180, 20);
-			this->textBox6->TabIndex = 1;
+			this->textBox6->TabIndex = 7;
 			// 
 			// label18
 			// 
@@ -734,28 +744,28 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox11->Location = System::Drawing::Point(124, 408);
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->Size = System::Drawing::Size(180, 20);
-			this->textBox11->TabIndex = 1;
+			this->textBox11->TabIndex = 16;
 			// 
 			// textBox10
 			// 
 			this->textBox10->Location = System::Drawing::Point(124, 382);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(180, 20);
-			this->textBox10->TabIndex = 1;
+			this->textBox10->TabIndex = 15;
 			// 
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(124, 356);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(180, 20);
-			this->textBox3->TabIndex = 1;
+			this->textBox3->TabIndex = 14;
 			// 
 			// textBox7
 			// 
 			this->textBox7->Location = System::Drawing::Point(124, 199);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(180, 20);
-			this->textBox7->TabIndex = 1;
+			this->textBox7->TabIndex = 8;
 			// 
 			// label6
 			// 
@@ -771,7 +781,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox8->Location = System::Drawing::Point(124, 225);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(180, 20);
-			this->textBox8->TabIndex = 1;
+			this->textBox8->TabIndex = 9;
 			// 
 			// label19
 			// 
@@ -1309,6 +1319,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Направления";
 			this->tabPage5->Click += gcnew System::EventHandler(this, &MyForm::tabPage5_Click);
+			this->tabPage5->Enter += gcnew System::EventHandler(this, &MyForm::tabPage5_Enter);
 			// 
 			// groupBox9
 			// 
@@ -1333,6 +1344,8 @@ public: System::Windows::Forms::Label^  label27;
 			this->comboBox10->Name = L"comboBox10";
 			this->comboBox10->Size = System::Drawing::Size(308, 21);
 			this->comboBox10->TabIndex = 5;
+			this->comboBox10->Text = L"Выберите направление";
+			this->comboBox10->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox10_SelectedIndexChanged);
 			// 
 			// label31
 			// 
@@ -1375,6 +1388,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button16->TabIndex = 1;
 			this->button16->Text = L"Добавить";
 			this->button16->UseVisualStyleBackColor = true;
+			this->button16->Click += gcnew System::EventHandler(this, &MyForm::button16_Click);
 			// 
 			// button17
 			// 
@@ -1384,10 +1398,13 @@ public: System::Windows::Forms::Label^  label27;
 			this->button17->TabIndex = 1;
 			this->button17->Text = L"Удалить";
 			this->button17->UseVisualStyleBackColor = true;
+			this->button17->Click += gcnew System::EventHandler(this, &MyForm::button17_Click);
 			// 
 			// groupBox8
 			// 
+			this->groupBox8->Controls->Add(this->label32);
 			this->groupBox8->Controls->Add(this->label29);
+			this->groupBox8->Controls->Add(this->textBox27);
 			this->groupBox8->Controls->Add(this->textBox4);
 			this->groupBox8->Controls->Add(this->button15);
 			this->groupBox8->Controls->Add(this->button14);
@@ -1399,6 +1416,15 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox8->TabStop = false;
 			this->groupBox8->Text = L"Работа с направлениями";
 			// 
+			// label32
+			// 
+			this->label32->AutoSize = true;
+			this->label32->Location = System::Drawing::Point(10, 399);
+			this->label32->Name = L"label32";
+			this->label32->Size = System::Drawing::Size(26, 13);
+			this->label32->TabIndex = 3;
+			this->label32->Text = L"Код";
+			// 
 			// label29
 			// 
 			this->label29->AutoSize = true;
@@ -1407,6 +1433,13 @@ public: System::Windows::Forms::Label^  label27;
 			this->label29->Size = System::Drawing::Size(57, 13);
 			this->label29->TabIndex = 3;
 			this->label29->Text = L"Название";
+			// 
+			// textBox27
+			// 
+			this->textBox27->Location = System::Drawing::Point(68, 396);
+			this->textBox27->Name = L"textBox27";
+			this->textBox27->Size = System::Drawing::Size(253, 20);
+			this->textBox27->TabIndex = 2;
 			// 
 			// textBox4
 			// 
@@ -1423,6 +1456,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button15->TabIndex = 1;
 			this->button15->Text = L"Удалить";
 			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Click += gcnew System::EventHandler(this, &MyForm::button15_Click);
 			// 
 			// button14
 			// 
@@ -1432,13 +1466,14 @@ public: System::Windows::Forms::Label^  label27;
 			this->button14->TabIndex = 1;
 			this->button14->Text = L"Добавить";
 			this->button14->UseVisualStyleBackColor = true;
+			this->button14->Click += gcnew System::EventHandler(this, &MyForm::button14_Click);
 			// 
 			// listBox2
 			// 
 			this->listBox2->FormattingEnabled = true;
 			this->listBox2->Location = System::Drawing::Point(13, 23);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(308, 394);
+			this->listBox2->Size = System::Drawing::Size(308, 368);
 			this->listBox2->TabIndex = 0;
 			// 
 			// statusStrip1
@@ -1603,7 +1638,7 @@ public: void LoadProfiles1(/*Загружает профили в выпадающий список*/) {
 		this->comboBox8->Items->Add(s);
 	}
 }
-public: void LoadDirections() {
+public: void LoadDirections1() {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
 	String ^s,^id;
@@ -1617,6 +1652,46 @@ public: void LoadDirections() {
 		id = gcnew String(row[0]);
 			s = gcnew String(row[1]);			
 			this->comboBox9->Items->Add(s);					
+	}
+}
+public: void LoadProfiles5(/*Загружает профили в выпадающий список*/) {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s, ^d;
+
+	
+	if (this->comboBox10->SelectedIndex == -1) return;
+	this->listBox3->Items->Clear();
+
+	s = this->comboBox10->SelectedItem->ToString();
+	d = gcnew String("select P.name, D.id, D.name, P.directId from Directions as D, Profiles as P where D.name='" + s + "' and P.directId=D.id");
+
+	D->mydb->RawSQL(StrToChar(d));
+	res = D->mydb->res;
+	while ((row = mysql_fetch_row(res))) {
+		s = gcnew String(row[0]);
+		this->listBox3->Items->Add(s);
+	}
+}
+public: void LoadDirections5() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^n;
+
+	D->mydb->RawSQL("select name from Directions");
+	res = D->mydb->res;
+	this->comboBox10->Items->Clear();
+	this->comboBox10->SelectedIndex = -1;
+	this->comboBox10->Text = "Выберите направление";
+
+	this->listBox2->Items->Clear();
+	this->listBox3->Items->Clear();
+
+
+	while ((row = mysql_fetch_row(res))) {		
+		n = gcnew String(row[0]);
+		this->listBox2->Items->Add(n);
+		this->comboBox10->Items->Add(n);
 	}
 }
 public: void AddStudent() {
@@ -1664,7 +1739,98 @@ public: void AddStudent() {
 	D->mydb->RawSQL(StrToChar(s));
 
 }
+public: void AddDirection5() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s, ^d, ^p,^Code,^Name;
+	Code= this->textBox27->Text ;
+	Name = this->textBox4->Text;
 
+	d = gcnew String("");
+	d = "Insert into Directions (codename,name) Values ('" + Code + "', '" + Name + "');";
+	
+	D->mydb->RawSQL(StrToChar(d));
+
+	this->textBox27->Text = "";
+	this->textBox4->Text = "";
+
+}
+public: void AddProfile5() {
+
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s, ^id,^d,  ^Name;
+	//Для начала узнаем id направления
+	if (this->comboBox10->SelectedIndex == -1) return;
+
+	s = "select id, name from Directions where name='"+this->comboBox10->SelectedItem->ToString()+"'";
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+	
+	while ((row = mysql_fetch_row(res))) {
+		id = gcnew String(row[0]);
+	}
+	
+	// Теперь добавим профиль
+	Name = this->textBox18->Text;
+	
+
+	d = gcnew String("");
+	d = "Insert into Profiles (directID,name) Values (" + id + ", '" + Name + "');";
+	D->mydb->RawSQL(StrToChar(d));
+	this->textBox18->Text = "";
+}
+public: void DeleteProfile5() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s, ^id, ^d, ^Name;
+	//Для начала узнаем id направления
+	if (this->comboBox10->SelectedIndex == -1) return;
+	if (this->listBox3->SelectedIndex == -1) return;
+
+
+	s = "select id, name from Directions where name='" + this->comboBox10->SelectedItem->ToString() + "'";
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+
+	while ((row = mysql_fetch_row(res))) {
+		id = gcnew String(row[0]);
+	}
+	// Теперь можно удалять сам профиль
+
+	Name = this->listBox3->SelectedItem->ToString();
+
+	d = gcnew String("");
+	d = "Delete from Profiles where (directID=" + id + ") and (name='" + Name + "'); ";
+	D->mydb->RawSQL(StrToChar(d));
+}
+public: void DeleteDirection5() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s, ^id, ^d, ^Name;
+	
+	if (this->listBox2->SelectedIndex == -1) return;
+
+	Name = this->listBox2->SelectedItem->ToString();
+
+	d = gcnew String("");
+	d = "Delete from Directions where name='" + Name + "'; ";
+	D->mydb->RawSQL(StrToChar(d));
+}
+public: void Refresh0(){
+	switch (this->Vkladka) {
+	case 1: {break; }
+	case 2: {break; }
+	case 3: {break; }
+	case 4: {break; }
+	case 5: {
+		LoadDirections5();
+		LoadProfiles5();		
+		break; 
+	}	
+	};
+
+}
 
 
 public: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
@@ -1691,7 +1857,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	D = new Decan();
-	LoadDirections();
+	LoadDirections1();
 }
 private: System::Void tabControl1_EnabledChanged(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -1700,28 +1866,58 @@ private: System::Void tabControl1_EnabledChanged(System::Object^  sender, System
 
 private: System::Void tabPage1_Enter(System::Object^  sender, System::EventArgs^  e) {
 	this->Vkladka = 1;
+	Refresh0();
 }
 private: System::Void tabPage2_Enter(System::Object^  sender, System::EventArgs^  e) {
 	this->Vkladka = 2;	
+	Refresh0();
 }
 private: System::Void tabPage3_Enter(System::Object^  sender, System::EventArgs^  e) {
 	this->Vkladka = 3;
+	Refresh0();
 }
 private: System::Void tabPage4_Enter(System::Object^  sender, System::EventArgs^  e) {
 	this->Vkladka = 4;
+	Refresh0();
 }
-
+private: System::Void tabPage5_Enter(System::Object^  sender, System::EventArgs^  e) {
+	this->Vkladka = 5;
+	Refresh0();
+}
 private: System::Void comboBox9_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	LoadProfiles1();
 }
 private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	 
 }
 private: System::Void tabPage5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 	AddStudent();
+
+}
+private: System::Void groupBox2_Enter(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button14_Click(System::Object^  sender, System::EventArgs^  e) {
+	AddDirection5();
+	Refresh0();
+}
+
+
+private: System::Void comboBox10_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	LoadProfiles5();
+}
+private: System::Void button16_Click(System::Object^  sender, System::EventArgs^  e) {
+	AddProfile5();
+	LoadProfiles5();
+}
+private: System::Void button17_Click(System::Object^  sender, System::EventArgs^  e) {
+	DeleteProfile5();
+	LoadProfiles5();
+}
+private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
+	DeleteDirection5();
+	Refresh0();
 
 }
 };
