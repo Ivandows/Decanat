@@ -12,6 +12,7 @@ namespace Decanat {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Runtime::InteropServices;
+	using namespace	System::Text;
 
 	/// <summary>
 	/// Ñâîäêà äëÿ MyForm
@@ -62,6 +63,7 @@ namespace Decanat {
 
 	public:
 		int Vkladka = 1;
+		int SelectedStudent=-1;
 
 
 	public: MyForm(void)
@@ -221,6 +223,7 @@ public: System::Windows::Forms::Label^  label27;
 			System::Windows::Forms::TreeNode^  treeNode2 = (gcnew System::Windows::Forms::TreeNode(L"Ïðåäìåòû"));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->treeView1 = (gcnew System::Windows::Forms::TreeView());
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->dateTimePicker3 = (gcnew System::Windows::Forms::DateTimePicker());
@@ -345,7 +348,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->íàñòðîéêèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ïîìîùüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îÏðîãðàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->treeView1 = (gcnew System::Windows::Forms::TreeView());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -391,6 +393,14 @@ public: System::Windows::Forms::Label^  label27;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Êîíòåíãåíò";
 			this->tabPage1->Enter += gcnew System::EventHandler(this, &MyForm::tabPage1_Enter);
+			// 
+			// treeView1
+			// 
+			this->treeView1->Location = System::Drawing::Point(9, 36);
+			this->treeView1->Name = L"treeView1";
+			this->treeView1->Size = System::Drawing::Size(226, 493);
+			this->treeView1->TabIndex = 5;
+			this->treeView1->AfterSelect += gcnew System::Windows::Forms::TreeViewEventHandler(this, &MyForm::treeView1_AfterSelect);
 			// 
 			// textBox9
 			// 
@@ -1586,13 +1596,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->îÏðîãðàììåToolStripMenuItem->Size = System::Drawing::Size(149, 22);
 			this->îÏðîãðàììåToolStripMenuItem->Text = L"Î ïðîãðàììå";
 			// 
-			// treeView1
-			// 
-			this->treeView1->Location = System::Drawing::Point(9, 36);
-			this->treeView1->Name = L"treeView1";
-			this->treeView1->Size = System::Drawing::Size(226, 493);
-			this->treeView1->TabIndex = 5;
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1654,26 +1657,25 @@ public: char * StrToChar(String ^s) {
 public: void Mess(String ^s) {
 	MessageBox::Show(s, "Îøèáêà", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
-public: int GetDirectionById(ComboBox^ c, String ^Id) {
+public: int GetDirectionById(ComboBox^ c, String ^id) {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
 
 	String ^s = gcnew String(""); 
-	String ^s1;	
+	String ^s1;
 
-	s = "select id, codename from Directions where id=" + Id;
+	s = "select id, codename from Directions where id=" + id;
 	D->mydb->RawSQL(StrToChar(s));
 	res = D->mydb->res;
 
 	if ((row = mysql_fetch_row(res))) {
-		s1= gcnew String(row[0]);
+		s1= gcnew String(row[1]);
 		for (int i = 0; i < c->Items->Count; i++) {
-			if (s1 == c->Items[i]) {
+			if (s1 == c->Items[i]->ToString()) {
 				return i;
 			}
 		}
 	}
-
 	return -1;
 }
 public: int GetProfileById(ComboBox^ c, String ^Id) {
@@ -1682,14 +1684,14 @@ public: int GetProfileById(ComboBox^ c, String ^Id) {
 		String ^s = gcnew String("");
 		String ^s1;
 
-		s = "select id, name from Directions where id=" + Id;
+		s = "select id, name from Profiles where id=" + Id;
 		D->mydb->RawSQL(StrToChar(s));
 		res = D->mydb->res;
 
 		if ((row = mysql_fetch_row(res))) {
-				s1 = gcnew String(row[0]);
+				s1 = gcnew String(row[1]);
 				for (int i = 0; i < c->Items->Count; i++) {
-					if (s1 == c->Items[i]) {
+					if (s1 == c->Items[i]->ToString()) {
 						return i;
 					}
 				}
@@ -1697,6 +1699,20 @@ public: int GetProfileById(ComboBox^ c, String ^Id) {
 
 	return -1;
 }
+public: DateTime  ReformatDate(char *c) {
+	int y, m, d;
+	StringBuilder^ D = gcnew StringBuilder(gcnew String(c));
+	
+	String ^s = gcnew String("");
+	s = "" + D[8] + D[9];
+	d = System::Convert::ToInt32(s);
+	s = "" + D[5] + D[6];
+	m = System::Convert::ToInt32(s);	
+	s = "" + D[0] + D[1]+ D[2] + D[3];
+	y = System::Convert::ToInt32(s);
+	return  DateTime(y,m,d);
+}
+//------------------------
 public: void LoadTree1() {
 	MYSQL_RES *res,*res2;
 	MYSQL_ROW row,row2;
@@ -1831,8 +1847,8 @@ public: void AddStudent1() {
 		this->comboBox1->SelectedIndex + "'," + //sex
 		d + "," + //direct
 		p + ",'" + //profile
-		this->dateTimePicker1->Value.Date.ToString("yyyy-MM-dd") + "','" + //edustart
-		this->dateTimePicker1->Value.Date.ToString("yyyy-MM-dd") + "','" + //edu stop
+		this->dateTimePicker2->Value.Date.ToString("yyyy-MM-dd") + "','" + //edustart
+		this->dateTimePicker3->Value.Date.ToString("yyyy-MM-dd") + "','" + //edu stop
 		this->textBox2->Text + "','" + //groupe
 		this->textBox7->Text + "','" + //caf
 		this->textBox8->Text + "'," +// manager
@@ -1925,6 +1941,43 @@ public: void DeleteDirection5() {
 	d = "Delete from Directions where name='" + Name + "'; ";
 	D->mydb->RawSQL(StrToChar(d));
 }
+public: void SelectStudent1(int id) {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s;
+	if (id == -1) {//ìû âûáðàëè ãðóïïó
+		//?Î÷èùàòü ëè çäåñü ïîëÿ ñòóäåíòà
+		return; 
+	}
+	s = "select fio, birth, sex, directId, profileId, edu_start, edu_stop, groupe, cafedra, manager, hostel, status, edu_vid, edu_base, country, email, tel from Students where id=" + id;
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+	
+	if ((row = mysql_fetch_row(res))) {
+		this->textBox1->Text = gcnew String(row[0]); //fio 
+		this->dateTimePicker1->Value = ReformatDate(row[1]);//birth
+		this->comboBox1->SelectedIndex = System::Convert::ToInt32(gcnew String(row[2])); //sex
+		this->comboBox9->SelectedIndex = GetDirectionById(comboBox9, gcnew String(row[3]));// direction
+		LoadProfiles1();
+		this->comboBox8->SelectedIndex = GetProfileById(comboBox8, gcnew String(row[4]));//profile
+			this->dateTimePicker2->Value = ReformatDate(row[5]);//edustart
+			this->dateTimePicker3->Value = ReformatDate(row[6]); //edu stop
+			this->textBox2->Text = gcnew String(row[7]); //groupe
+			this->textBox7->Text = gcnew String(row[8]); //caf
+			this->textBox8->Text = gcnew String(row[9]);// manager
+			this->comboBox5->SelectedIndex=System::Convert::ToInt32(gcnew String(row[10]));//hostel
+			this->comboBox2->SelectedIndex = System::Convert::ToInt32(gcnew String(row[11])); //status
+			this->comboBox3->SelectedIndex = System::Convert::ToInt32(gcnew String(row[12]));// vid (ochno)
+			this->comboBox4->SelectedIndex = System::Convert::ToInt32(gcnew String(row[13])); // base
+			this->textBox3->Text  = gcnew String(row[14]);  //country
+			this->textBox10->Text = gcnew String(row[15]);//email
+			this->textBox11->Text = gcnew String(row[16]);	//tel
+			
+
+	}
+
+}
+//---------------------
 public: void Refresh0(){
 	switch (this->Vkladka) {
 	case 1: {
@@ -1952,7 +2005,6 @@ public: System::Void âûõîäToolStripMenuItem_Click(System::Object^  sender, Syste
 	// Ìåíþ Âûõîä
 	this->Close();
 }
-
 public: System::Void MyForm_Activated(System::Object^  sender, System::EventArgs^  e) {
 	
 }
@@ -1963,16 +2015,12 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	//LoadProfiles1();
 
 }
-
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	D = new Decan();
 	LoadDirections1();
 }
 private: System::Void tabControl1_EnabledChanged(System::Object^  sender, System::EventArgs^  e) {
 }
-
-
-
 private: System::Void tabPage1_Enter(System::Object^  sender, System::EventArgs^  e) {
 	this->Vkladka = 1;
 	Refresh0();
@@ -2012,8 +2060,6 @@ private: System::Void button14_Click(System::Object^  sender, System::EventArgs^
 	AddDirection5();
 	Refresh0();
 }
-
-
 private: System::Void comboBox10_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	LoadProfiles5();
 }
@@ -2028,6 +2074,14 @@ private: System::Void button17_Click(System::Object^  sender, System::EventArgs^
 private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
 	DeleteDirection5();
 	Refresh0();
+
+}
+private: System::Void treeView1_AfterSelect(System::Object^  sender, System::Windows::Forms::TreeViewEventArgs^  e) {
+	int id = System::Convert::ToInt32(this->treeView1->SelectedNode->Tag);
+	this->SelectedStudent = id;
+	//this->Text = "" + id;
+	SelectStudent1(id);
+	
 
 }
 };
