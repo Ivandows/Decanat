@@ -65,7 +65,10 @@ namespace Decanat {
 
 	public:
 		int Vkladka = 1;
-		int SelectedStudent=-1;
+	private: System::Windows::Forms::TreeView^  treeView7;
+	private: System::Windows::Forms::DateTimePicker^  dateTimePicker4;
+	public:
+		int SelectedStudent = -1;
 
 
 	public: MyForm(void)
@@ -128,14 +131,14 @@ namespace Decanat {
 	public: System::Windows::Forms::ToolStripMenuItem^  îÏğîãğàììåToolStripMenuItem;
 	public: System::Windows::Forms::GroupBox^  groupBox1;
 	public: System::Windows::Forms::GroupBox^  groupBox2;
-	public: System::Windows::Forms::ListBox^  listBox1;
+
 	public: System::Windows::Forms::Label^  label15;
 	public: System::Windows::Forms::Label^  label14;
 	public: System::Windows::Forms::Label^  label13;
 
 	public: System::Windows::Forms::Button^  button1;
 	public: System::Windows::Forms::TextBox^  textBox15;
-	public: System::Windows::Forms::TextBox^  textBox14;
+
 	public: System::Windows::Forms::TextBox^  textBox13;
 	public: System::Windows::Forms::Button^  button4;
 	public: System::Windows::Forms::Button^  button3;
@@ -242,12 +245,12 @@ public: System::Windows::Forms::Label^  label27;
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->dateTimePicker4 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->treeView7 = (gcnew System::Windows::Forms::TreeView());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox15 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
@@ -581,12 +584,12 @@ public: System::Windows::Forms::Label^  label27;
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->dateTimePicker4);
+			this->groupBox2->Controls->Add(this->treeView7);
 			this->groupBox2->Controls->Add(this->button2);
 			this->groupBox2->Controls->Add(this->button1);
 			this->groupBox2->Controls->Add(this->textBox15);
-			this->groupBox2->Controls->Add(this->textBox14);
 			this->groupBox2->Controls->Add(this->textBox13);
-			this->groupBox2->Controls->Add(this->listBox1);
 			this->groupBox2->Controls->Add(this->label15);
 			this->groupBox2->Controls->Add(this->label14);
 			this->groupBox2->Controls->Add(this->label13);
@@ -598,6 +601,21 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox2->Text = L"Ïğèêàçû";
 			this->groupBox2->Enter += gcnew System::EventHandler(this, &MyForm::groupBox2_Enter);
 			// 
+			// dateTimePicker4
+			// 
+			this->dateTimePicker4->Location = System::Drawing::Point(88, 260);
+			this->dateTimePicker4->Name = L"dateTimePicker4";
+			this->dateTimePicker4->Size = System::Drawing::Size(188, 20);
+			this->dateTimePicker4->TabIndex = 25;
+			// 
+			// treeView7
+			// 
+			this->treeView7->Location = System::Drawing::Point(7, 18);
+			this->treeView7->Name = L"treeView7";
+			this->treeView7->Size = System::Drawing::Size(274, 210);
+			this->treeView7->TabIndex = 24;
+			this->treeView7->AfterSelect += gcnew System::Windows::Forms::TreeViewEventHandler(this, &MyForm::treeView7_AfterSelect);
+			// 
 			// button2
 			// 
 			this->button2->Location = System::Drawing::Point(160, 310);
@@ -607,6 +625,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button2->TabStop = false;
 			this->button2->Text = L"Óäàëèòü";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button1
 			// 
@@ -617,6 +636,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button1->TabStop = false;
 			this->button1->Text = L"Äîáàâèòü";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// textBox15
 			// 
@@ -626,14 +646,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox15->TabIndex = 21;
 			this->textBox15->TabStop = false;
 			// 
-			// textBox14
-			// 
-			this->textBox14->Location = System::Drawing::Point(88, 261);
-			this->textBox14->Name = L"textBox14";
-			this->textBox14->Size = System::Drawing::Size(188, 20);
-			this->textBox14->TabIndex = 20;
-			this->textBox14->TabStop = false;
-			// 
 			// textBox13
 			// 
 			this->textBox13->Location = System::Drawing::Point(88, 238);
@@ -641,17 +653,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->textBox13->Size = System::Drawing::Size(188, 20);
 			this->textBox13->TabIndex = 19;
 			this->textBox13->TabStop = false;
-			// 
-			// listBox1
-			// 
-			this->listBox1->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(16, 21);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(260, 199);
-			this->listBox1->TabIndex = 100;
-			this->listBox1->TabStop = false;
-			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::listBox1_SelectedIndexChanged);
 			// 
 			// label15
 			// 
@@ -1993,9 +1994,20 @@ public: void DeleteDirection5() {
 	if (this->listBox2->SelectedIndex == -1) return;
 
 	Name = this->listBox2->SelectedItem->ToString();
+	s = "select id, name from Directions where name='"+Name+"'";
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+
+	while ((row = mysql_fetch_row(res))) {
+		id = gcnew String(row[0]);
+	}
 
 	d = gcnew String("");
 	d = "Delete from Directions where name='" + Name + "'; ";
+	D->mydb->RawSQL(StrToChar(d));
+
+	d = "Delete from Profiles where directID=" + id;
+	Mess(d);
 	D->mydb->RawSQL(StrToChar(d));
 }
 public: void SelectStudent1(int id) {
@@ -2033,6 +2045,57 @@ public: void SelectStudent1(int id) {
 
 	}
 
+}
+public: void AddOrder1() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s = gcnew String("");
+	if (this->SelectedStudent == -1) { return; }
+	s = "insert into orders (studentID,number,datta,about) Values (" +
+		this->SelectedStudent + ",'" + //Id
+		this->textBox13->Text + "','" + //number
+		this->dateTimePicker4->Value.Date.ToString("yyyy-MM-dd") +"','" +// datta
+		this->textBox15->Text + "');";	//about
+	
+	D->mydb->RawSQL(StrToChar(s));
+}
+public: void LoadOrder1() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s,^Id,^sid,^number,^data, ^about;
+	int id=this->SelectedStudent;
+	
+	this->treeView7->Nodes->Clear();
+	if (id == -1) { return; }
+
+	s = gcnew String("");
+	s = "select id,studentID,number,datta,about from orders where studentID="+id;
+
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+
+	while ((row = mysql_fetch_row(res))) {
+		Id = gcnew String(row[0]);		
+		number= gcnew String(row[2]);
+		data= gcnew String(row[3]);
+		about = gcnew String(row[4]);
+		s = "[" + number + "] " + data + " '"+about+"'";
+		TreeNode ^n1 = gcnew TreeNode(s);
+		n1->Tag = Id;
+		this->treeView7->Nodes->Add(n1);		
+	}
+}
+public: void DeleteOrder1() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s = gcnew String("");
+	
+	if (this->SelectedStudent == -1) { return; }
+	if (!this->treeView7->SelectedNode)return;
+	int id = System::Convert::ToInt32(this->treeView7->SelectedNode->Tag);
+	
+	s = "delete from Orders where id="+id;
+	D->mydb->RawSQL(StrToChar(s));
 }
 //---------------------
 public: void Refresh0(){
@@ -2135,8 +2198,18 @@ private: System::Void treeView1_AfterSelect(System::Object^  sender, System::Win
 	this->SelectedStudent = id;
 	//this->Text = "" + id;
 	SelectStudent1(id);
-	
-
+	LoadOrder1();
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	AddOrder1();
+	LoadOrder1();
+}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	DeleteOrder1();
+	LoadOrder1();
+}
+private: System::Void treeView7_AfterSelect(System::Object^  sender, System::Windows::Forms::TreeViewEventArgs^  e) {
+	this->Text = "" + this->treeView7->SelectedNode->Tag;
 }
 };
 
