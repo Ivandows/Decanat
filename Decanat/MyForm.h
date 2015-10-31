@@ -2,6 +2,8 @@
 ref class MyForm;
 
 #include <mysql.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "Header.h"
 namespace Decanat {
 
@@ -1648,6 +1650,7 @@ public: System::Windows::Forms::Label^  label27;
 
 		
 #pragma endregion
+
 public: char * StrToChar(String ^s) {
 
 			IntPtr ptrToNativeString = Marshal::StringToHGlobalAnsi(s);
@@ -1720,6 +1723,7 @@ public: void LoadTree1() {
 	int id;
 
 	s2 = gcnew String("");
+	this->treeView1->Nodes->Clear();
 
 	D->mydb->RawSQL("select distinct groupe from Students order by groupe");
 	res = D->mydb->res;
@@ -1817,6 +1821,59 @@ public: void LoadDirections5() {
 		this->comboBox10->Items->Add(n);
 	}
 }
+public: void UpdateStudent1() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s,^id, ^d, ^p;
+	
+	if (this->SelectedStudent == -1) {
+		return;
+	}
+	
+	id = gcnew String("");
+	s = gcnew String("");
+	id = "" + this->SelectedStudent;
+
+
+	d = gcnew String("");
+	d = "select id, codename from Directions where codename='" + this->comboBox9->SelectedItem + "'";
+	D->mydb->RawSQL(StrToChar(d));
+	d = "-1";
+	res = D->mydb->res;
+	while ((row = mysql_fetch_row(res))) {
+		d = gcnew String(row[0]);
+	}
+
+	p = gcnew String("");
+	p = "select id,name from Profiles where name='" + this->comboBox8->SelectedItem + "'";
+	D->mydb->RawSQL(StrToChar(p));
+	p = "-1";
+	res = D->mydb->res;
+	while ((row = mysql_fetch_row(res))) {
+		p = gcnew String(row[0]);
+	}
+
+	s = "update Students set " +
+		"fio='" + this->textBox1->Text + "'," + //fio 
+		"birth='" + this->dateTimePicker1->Value.Date.ToString("yyyy-MM-dd") + "'," + //birth			
+		"sex=" + this->comboBox1->SelectedIndex + "," + //sex
+		"directId=" + d + "," + //direct
+		"profileId=" + p + "," + //profile
+		"edu_start='" + this->dateTimePicker2->Value.Date.ToString("yyyy-MM-dd") + "'," + //edustart
+		"edu_stop='" + this->dateTimePicker3->Value.Date.ToString("yyyy-MM-dd") + "'," + //edu stop
+		"groupe='" + this->textBox2->Text + "'," + //groupe
+		"cafedra='" + this->textBox7->Text + "'," + //caf
+		"manager='" + this->textBox8->Text + "'," +// manager
+		"hostel=" + this->comboBox5->SelectedIndex + "," + //hostel
+		"statys=" + this->comboBox2->SelectedIndex + "," + //status
+		"edu_vid=" + this->comboBox3->SelectedIndex + "," + // vid (ochno)
+		"edu_base=" + this->comboBox4->SelectedIndex + "," + // base
+		"country='" + this->textBox3->Text + "'," + //country
+		"email='" + this->textBox10->Text + "'," + //email
+		"tel='" + this->textBox11->Text + "' " +	//tel
+		"where id=" + id;	
+	D->mydb->RawSQL(StrToChar(s));
+}
 public: void AddStudent1() {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
@@ -1841,7 +1898,7 @@ public: void AddStudent1() {
 	}
 
 
-	s = "insert into Students(fio, birth, sex, directId, profileId, edu_start, edu_stop, groupe, cafedra, manager, hostel, status, edu_vid, edu_base, country, email, tel) Values('" +
+	s = "insert into Students(fio, birth, sex, directId, profileId, edu_start, edu_stop, groupe, cafedra, manager, hostel, statys, edu_vid, edu_base, country, email, tel) Values('" +
 		this->textBox1->Text + "','" + //fio 
 		this->dateTimePicker1->Value.Date.ToString("yyyy-MM-dd")+ "','" + //birth
 		this->comboBox1->SelectedIndex + "'," + //sex
@@ -1949,7 +2006,7 @@ public: void SelectStudent1(int id) {
 		//?Очищать ли здесь поля студента
 		return; 
 	}
-	s = "select fio, birth, sex, directId, profileId, edu_start, edu_stop, groupe, cafedra, manager, hostel, status, edu_vid, edu_base, country, email, tel from Students where id=" + id;
+	s = "select fio, birth, sex, directId, profileId, edu_start, edu_stop, groupe, cafedra, manager, hostel, statys, edu_vid, edu_base, country, email, tel from Students where id=" + id;
 	D->mydb->RawSQL(StrToChar(s));
 	res = D->mydb->res;
 	
@@ -2009,11 +2066,8 @@ public: System::Void MyForm_Activated(System::Object^  sender, System::EventArgs
 	
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-	//LoadTree();
-	//D->ClearTables();	
-	
-	//LoadProfiles1();
-
+	UpdateStudent1();
+	LoadTree1();
 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	D = new Decan();
