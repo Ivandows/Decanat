@@ -81,6 +81,9 @@ namespace Decanat {
 	private: System::Windows::Forms::ComboBox^  comboBox13;
 	private: System::Windows::Forms::ComboBox^  comboBox12;
 	private: System::Windows::Forms::Label^  label39;
+	private: System::Windows::Forms::Label^  label40;
+	private: System::Windows::Forms::ComboBox^  comboBox14;
+	private: System::Windows::Forms::ComboBox^  comboBox15;
 	public:
 	public:
 		int SelectedStudent = -1;
@@ -199,8 +202,8 @@ public: System::Windows::Forms::GroupBox^  groupBox4;
 public: System::Windows::Forms::Label^  label22;
 
 public: System::Windows::Forms::GroupBox^  groupBox5;
-public: System::Windows::Forms::RadioButton^  radioButton2;
-public: System::Windows::Forms::RadioButton^  radioButton1;
+
+
 public: System::Windows::Forms::TextBox^  textBox25;
 public: System::Windows::Forms::Label^  label25;
 public: System::Windows::Forms::Button^  button9;
@@ -210,7 +213,7 @@ public: System::Windows::Forms::TreeView^  treeView6;
 public: System::Windows::Forms::TreeView^  treeView5;
 public: System::Windows::Forms::GroupBox^  groupBox6;
 public: System::Windows::Forms::Button^  button10;
-public: System::Windows::Forms::TextBox^  textBox26;
+
 public: System::Windows::Forms::Label^  label26;
 public: System::Windows::Forms::ToolStripMenuItem^  выходToolStripMenuItem;
 public: System::Windows::Forms::ToolStripMenuItem^  ывывыфToolStripMenuItem;
@@ -311,12 +314,12 @@ public: System::Windows::Forms::Label^  label27;
 			this->label28 = (gcnew System::Windows::Forms::Label());
 			this->label27 = (gcnew System::Windows::Forms::Label());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
+			this->comboBox15 = (gcnew System::Windows::Forms::ComboBox());
 			this->button10 = (gcnew System::Windows::Forms::Button());
-			this->textBox26 = (gcnew System::Windows::Forms::TextBox());
 			this->label26 = (gcnew System::Windows::Forms::Label());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->label40 = (gcnew System::Windows::Forms::Label());
+			this->comboBox14 = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
 			this->label25 = (gcnew System::Windows::Forms::Label());
 			this->button9 = (gcnew System::Windows::Forms::Button());
@@ -1111,6 +1114,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button12->TabIndex = 1;
 			this->button12->Text = L"Удалить";
 			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &MyForm::button12_Click);
 			// 
 			// button11
 			// 
@@ -1120,31 +1124,30 @@ public: System::Windows::Forms::Label^  label27;
 			this->button11->TabIndex = 1;
 			this->button11->Text = L"Добавить";
 			this->button11->UseVisualStyleBackColor = true;
-			this->button11->Visible = false;
+			this->button11->Click += gcnew System::EventHandler(this, &MyForm::button11_Click);
 			// 
 			// label28
 			// 
 			this->label28->AutoSize = true;
 			this->label28->Location = System::Drawing::Point(14, 94);
 			this->label28->Name = L"label28";
-			this->label28->Size = System::Drawing::Size(138, 13);
+			this->label28->Size = System::Drawing::Size(154, 13);
 			this->label28->TabIndex = 0;
-			this->label28->Text = L"Удалить курсовую работу";
+			this->label28->Text = L"Удалить предмет или работу";
 			// 
 			// label27
 			// 
 			this->label27->AutoSize = true;
 			this->label27->Location = System::Drawing::Point(14, 26);
 			this->label27->Name = L"label27";
-			this->label27->Size = System::Drawing::Size(246, 13);
+			this->label27->Size = System::Drawing::Size(264, 13);
 			this->label27->TabIndex = 0;
-			this->label27->Text = L"Оставить предметы соответстующие профилю";
-			this->label27->Visible = false;
+			this->label27->Text = L"Заполнить предметами соответстующие профилю";
 			// 
 			// groupBox6
 			// 
+			this->groupBox6->Controls->Add(this->comboBox15);
 			this->groupBox6->Controls->Add(this->button10);
-			this->groupBox6->Controls->Add(this->textBox26);
 			this->groupBox6->Controls->Add(this->label26);
 			this->groupBox6->Location = System::Drawing::Point(560, 177);
 			this->groupBox6->Name = L"groupBox6";
@@ -1152,6 +1155,15 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox6->TabIndex = 6;
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Text = L"Оценка по предмету";
+			// 
+			// comboBox15
+			// 
+			this->comboBox15->FormattingEnabled = true;
+			this->comboBox15->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Отлично", L"Хорошо", L"Удовлетворительно", L"Зачет" });
+			this->comboBox15->Location = System::Drawing::Point(88, 16);
+			this->comboBox15->Name = L"comboBox15";
+			this->comboBox15->Size = System::Drawing::Size(121, 21);
+			this->comboBox15->TabIndex = 5;
 			// 
 			// button10
 			// 
@@ -1161,18 +1173,12 @@ public: System::Windows::Forms::Label^  label27;
 			this->button10->TabIndex = 3;
 			this->button10->Text = L"Изменить";
 			this->button10->UseVisualStyleBackColor = true;
-			// 
-			// textBox26
-			// 
-			this->textBox26->Location = System::Drawing::Point(100, 19);
-			this->textBox26->Name = L"textBox26";
-			this->textBox26->Size = System::Drawing::Size(93, 20);
-			this->textBox26->TabIndex = 5;
+			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
 			// label26
 			// 
 			this->label26->AutoSize = true;
-			this->label26->Location = System::Drawing::Point(14, 22);
+			this->label26->Location = System::Drawing::Point(14, 19);
 			this->label26->Name = L"label26";
 			this->label26->Size = System::Drawing::Size(45, 13);
 			this->label26->TabIndex = 4;
@@ -1180,8 +1186,8 @@ public: System::Windows::Forms::Label^  label27;
 			// 
 			// groupBox5
 			// 
-			this->groupBox5->Controls->Add(this->radioButton2);
-			this->groupBox5->Controls->Add(this->radioButton1);
+			this->groupBox5->Controls->Add(this->label40);
+			this->groupBox5->Controls->Add(this->comboBox14);
 			this->groupBox5->Controls->Add(this->textBox25);
 			this->groupBox5->Controls->Add(this->label25);
 			this->groupBox5->Controls->Add(this->button9);
@@ -1192,39 +1198,35 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox5->TabStop = false;
 			this->groupBox5->Text = L"Добавить работу";
 			// 
-			// radioButton2
+			// label40
 			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(82, 80);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(111, 17);
-			this->radioButton2->TabIndex = 7;
-			this->radioButton2->Text = L"Итоговая работа";
-			this->radioButton2->UseVisualStyleBackColor = true;
+			this->label40->AutoSize = true;
+			this->label40->Location = System::Drawing::Point(6, 57);
+			this->label40->Name = L"label40";
+			this->label40->Size = System::Drawing::Size(78, 13);
+			this->label40->TabIndex = 7;
+			this->label40->Text = L"Тип предмета";
 			// 
-			// radioButton1
+			// comboBox14
 			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Checked = true;
-			this->radioButton1->Location = System::Drawing::Point(82, 57);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(111, 17);
-			this->radioButton1->TabIndex = 6;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Курсовая работа";
-			this->radioButton1->UseVisualStyleBackColor = true;
+			this->comboBox14->FormattingEnabled = true;
+			this->comboBox14->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Курсовая работа", L"Дипломная работа" });
+			this->comboBox14->Location = System::Drawing::Point(86, 54);
+			this->comboBox14->Name = L"comboBox14";
+			this->comboBox14->Size = System::Drawing::Size(123, 21);
+			this->comboBox14->TabIndex = 6;
 			// 
 			// textBox25
 			// 
-			this->textBox25->Location = System::Drawing::Point(77, 29);
+			this->textBox25->Location = System::Drawing::Point(86, 29);
 			this->textBox25->Name = L"textBox25";
-			this->textBox25->Size = System::Drawing::Size(239, 20);
+			this->textBox25->Size = System::Drawing::Size(230, 20);
 			this->textBox25->TabIndex = 5;
 			// 
 			// label25
 			// 
 			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(14, 29);
+			this->label25->Location = System::Drawing::Point(6, 32);
 			this->label25->Name = L"label25";
 			this->label25->Size = System::Drawing::Size(57, 13);
 			this->label25->TabIndex = 4;
@@ -1238,6 +1240,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->button9->TabIndex = 3;
 			this->button9->Text = L"Добавить";
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
 			// 
 			// label33
 			// 
@@ -1270,6 +1273,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->treeView6->Name = L"treeView6";
 			this->treeView6->Size = System::Drawing::Size(271, 444);
 			this->treeView6->TabIndex = 0;
+			this->treeView6->AfterSelect += gcnew System::Windows::Forms::TreeViewEventHandler(this, &MyForm::treeView6_AfterSelect);
 			// 
 			// treeView5
 			// 
@@ -1277,6 +1281,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->treeView5->Name = L"treeView5";
 			this->treeView5->Size = System::Drawing::Size(271, 415);
 			this->treeView5->TabIndex = 0;
+			this->treeView5->AfterSelect += gcnew System::Windows::Forms::TreeViewEventHandler(this, &MyForm::treeView5_AfterSelect);
 			// 
 			// tabPage4
 			// 
@@ -1853,6 +1858,12 @@ public: void ClearFields2() {
 	this->checkBox2->Checked = false;
 	this->checkBox3->Checked = false;
 }
+public: void ClearFields3(int i) {
+	this->textBox25->Text = "";
+	this->comboBox14->SelectedIndex = -1;
+	this->comboBox15->SelectedIndex = -1;
+	if (i == 0) { this->treeView6->Nodes->Clear(); }
+}
 public: void LoadTree1() {
 	MYSQL_RES *res,*res2;
 	MYSQL_ROW row,row2;
@@ -1909,6 +1920,38 @@ public: void LoadTree2() {
 			n1->Nodes->Add(n2);
 		}
 	}
+
+}
+public: void LoadTree3() {
+	MYSQL_RES *res, *res2;
+	MYSQL_ROW row, row2;
+	String ^s, ^s2;
+
+	s2 = gcnew String("");
+	this->treeView5->Nodes->Clear();
+
+	s2 = "select distinct groupe from Students where fio Like '%" + this->textBox24->Text + "%' order by groupe";
+	D->mydb->RawSQL(StrToChar(s2));
+	res = D->mydb->res;
+
+	while ((row = mysql_fetch_row(res))) {
+		s = gcnew String(row[0]);
+		TreeNode ^n1 = gcnew TreeNode(s);
+		n1->Tag = -1;
+		this->treeView5->Nodes->Add(n1);
+		s2 = "select id, fio, groupe from Students where (groupe='" + s + "') and (fio Like '%" + this->textBox24->Text + "%') order by fio";
+		D->mydb->RawSQL(StrToChar(s2));
+		res2 = D->mydb->res;
+
+		while ((row2 = mysql_fetch_row(res2))) {
+			TreeNode ^n2 = gcnew TreeNode(gcnew String(row2[1]));
+			n2->Tag = System::Convert::ToInt32(gcnew String(row2[0]));
+			n1->Nodes->Add(n2);
+		}
+	}
+
+
+
 
 }
 public: void LoadProfiles1(/*Загружает профили в выпадающий список*/) {
@@ -2089,6 +2132,32 @@ public: void LoadLessons4() {
 		this->treeView4->Nodes->Add(n1);
 	}
 }
+public: void AddLessons3() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s, ^l;	
+	int pid = -1;
+	int id = this->SelectedStudent;
+	if (id == -1) { return; }	
+
+	s = gcnew String("");	
+
+	s = "delete from marks where studentID=" + id; // Удалили предыдущие предметы оценки студента
+	D->mydb->RawSQL(StrToChar(s));
+	
+	// узнаем какого профиля студент
+	s = "select ProfileID,id from students where id=" + id;
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+	if ((row = mysql_fetch_row(res))) {
+		pid = System::Convert::ToInt32(gcnew String(row[0]));
+	}
+
+	// Заполняем предметы для студента
+	s = "insert into marks(StudentID, tip, LessonID) select " + id + ",2,id from lessons where ProfileID = " + pid;
+	
+	D->mydb->RawSQL(StrToChar(s));
+}
 public: void AddOneLesson4(int pid) {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
@@ -2222,6 +2291,46 @@ public: void UpdateStudents2() {
 		id = System::Convert::ToInt32(this->treeView3->Nodes[i]->Tag);
 		UpdateOneStudent2(id);
 	}	
+}
+public: void UpdateMark3() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s;
+	s = gcnew String("");
+
+	int m = this->comboBox15->SelectedIndex;
+
+	if (!this->treeView6->SelectedNode) { return; } //предмет не выбран
+	if (m==-1) { return; } // оценка не указана
+
+	int lid = System::Convert::ToInt32(this->treeView6->SelectedNode->Tag);
+
+	s = "update marks set value=" + m + " where id=" + lid;
+	D->mydb->RawSQL(StrToChar(s));
+}
+public: void AddMark3() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s;
+	s = gcnew String("");
+
+	int id = -1;
+
+	int t = this->comboBox14->SelectedIndex;
+	id = this->SelectedStudent;
+
+	if (!this->treeView5->SelectedNode) { return; } //студент не выбран
+	if (t == -1) { return; } // тип предмета не указан
+	if (id == -1) { return; }//студент не выбран
+
+	
+
+	s = "insert into marks (name, tip,studentID) value('" +
+		this->textBox25->Text + "'," +
+		this->comboBox14->SelectedIndex + ","+
+		id+")"	;
+	
+	D->mydb->RawSQL(StrToChar(s));
 }
 public: void AddStudent1() {
 	MYSQL_RES *res;
@@ -2372,6 +2481,19 @@ public: void DeleteLesson4() {
 	s = "delete from Lessons where id="+id;
 	D->mydb->RawSQL(StrToChar(s));
 }
+public: void DeleteLesson3() {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s;	
+	s = gcnew String("");
+
+	if (!this->treeView6->SelectedNode)return;
+
+	int lid = System::Convert::ToInt32(this->treeView6->SelectedNode->Tag);
+
+	s = "delete from marks where id=" + lid;
+	D->mydb->RawSQL(StrToChar(s));
+}
 public: void SelectStudent1(int id) {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
@@ -2418,7 +2540,70 @@ public: void SelectStudent2(TreeNode ^n1) {
 
 	this->treeView3->Nodes->Add(n2);
 }
-public: void SelectedLesson(int id) {
+public: void SelectStudent3(int id) {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s;
+
+	ClearFields3(0);
+	if (id == -1) {//мы выбрали группу				   
+		return;
+	}
+	
+	s = "select M.id,L.name,L.id,M.LessonID,M.studentID from lessons as L,marks as M  where (M.Studentid=" + id+")"+
+				" and (L.id=M.LessonID)";
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;	
+
+	while ((row = mysql_fetch_row(res))) {
+		TreeNode ^n1 = gcnew TreeNode(gcnew String(row[1]));
+		n1->Tag = System::Convert::ToInt32(gcnew String(row[0]));
+		this->treeView6->Nodes->Add(n1);
+	}
+	TreeNode ^n1 = gcnew TreeNode("Курсовые и итоговые работы ");
+	n1->Tag = -1;
+	this->treeView6->Nodes->Add(n1);
+
+	s = "select M.id,M.name,M.studentID from marks as M  where (M.Studentid=" + id + ")" +
+		" and not (m.tip=2)";
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+
+	while ((row = mysql_fetch_row(res))) {
+		TreeNode ^n2 = gcnew TreeNode(gcnew String(row[1]));
+		n2->Tag = System::Convert::ToInt32(gcnew String(row[0]));
+		n1->Nodes->Add(n2);
+	}
+}
+public: void SelectedLesson3(int lid) {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	String ^s;
+	int tip;
+	
+	if (lid == -1) {//мы выбрали группу	
+		ClearFields3(1);
+		return;
+	}
+
+	s = "select name,tip,value from marks where id="+lid;
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+
+	if ((row = mysql_fetch_row(res))) {
+		tip = System::Convert::ToInt32(gcnew String(row[1]));
+		if (tip != 2) {
+			this->textBox25->Text = gcnew String(row[0]);
+			this->comboBox14->SelectedIndex = tip;		
+		}
+		else {
+			this->textBox25->Text = "";
+			this->comboBox14->SelectedIndex = -1;			
+		}
+		this->comboBox15->SelectedIndex= System::Convert::ToInt32(gcnew String(row[2]));
+	}
+}
+public: void SelectedLesson4(int id) {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
 	String ^s;
@@ -2432,9 +2617,6 @@ public: void SelectedLesson(int id) {
 		this->comboBox11->SelectedIndex = System::Convert::ToInt32( gcnew String(row[0]));
 		this->textBox23->Text= gcnew String(row[1]);		
 	}
-
-
-
 }
 public: void AddOrder1() {
 	MYSQL_RES *res;
@@ -2500,7 +2682,11 @@ public: void Refresh0(){
 		LoadTree2();
 		break; 
 	}
-	case 3: {break; }
+	case 3: {
+		ClearFields3(0);
+		LoadTree3();
+		break; 
+	}
 	case 4: {
 		LoadDirections4();
 		break; 
@@ -2512,7 +2698,6 @@ public: void Refresh0(){
 	}	
 	};
 }
-
 public: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
 	}
 public: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -2628,7 +2813,7 @@ private: System::Void button8_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void treeView4_AfterSelect(System::Object^  sender, System::Windows::Forms::TreeViewEventArgs^  e) {
 	int id = System::Convert::ToInt32(this->treeView4->SelectedNode->Tag);	
-	SelectedLesson(id);
+	SelectedLesson4(id);
 }
 private: System::Void textBox12_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	LoadTree2();
@@ -2655,6 +2840,46 @@ private: System::Void treeView1_NodeMouseClick(System::Object^  sender, System::
 }
 private: System::Void treeView2_AfterSelect(System::Object^  sender, System::Windows::Forms::TreeViewEventArgs^  e) {
 	SelectStudent2(this->treeView2->SelectedNode);
+}
+private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (!this->treeView5->SelectedNode)return;
+	int id = System::Convert::ToInt32(this->treeView5->SelectedNode->Tag);
+	this->SelectedStudent = id;
+	AddLessons3();	
+	SelectStudent3(id);
+}
+private: System::Void treeView5_AfterSelect(System::Object^  sender, System::Windows::Forms::TreeViewEventArgs^  e) {
+
+	int id = System::Convert::ToInt32(this->treeView5->SelectedNode->Tag);
+	this->SelectedStudent = id;	
+	SelectStudent3(id);
+}
+private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {			
+	if (!this->treeView5->SelectedNode)return;
+	int id = System::Convert::ToInt32(this->treeView5->SelectedNode->Tag);
+	this->SelectedStudent = id;
+	DeleteLesson3();
+	SelectStudent3(id);
+}
+private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	UpdateMark3();
+}
+private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {	
+	if (!this->treeView5->SelectedNode)return;
+	int id = System::Convert::ToInt32(this->treeView5->SelectedNode->Tag);
+	this->SelectedStudent = id;
+	AddMark3();
+	SelectStudent3(id);
+
+}
+private: System::Void treeView6_AfterSelect(System::Object^  sender, System::Windows::Forms::TreeViewEventArgs^  e) {
+	if (!this->treeView5->SelectedNode)return;	
+	this->SelectedStudent = System::Convert::ToInt32(this->treeView5->SelectedNode->Tag);
+
+	if (!this->treeView6->SelectedNode)return;
+	int id = System::Convert::ToInt32(this->treeView6->SelectedNode->Tag);	
+	SelectedLesson3(id);	
 }
 };
 

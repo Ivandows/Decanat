@@ -1,32 +1,11 @@
-﻿Сборка начата 03.11.2015 22:43:32.
-     1>Проект "C:\Users\Alfa\documents\visual studio 2015\Projects\Decanat\Decanat\Decanat.vcxproj" в узле 2 (целевые объекты Build).
-     1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /AI"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\\" /AI"C:\Program Files\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /TP /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Drawing.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Windows.Forms.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib MyForm.cpp
-         MyForm.cpp
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(1806): warning C4101: l: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(1824): warning C4101: l: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(1860): warning C4101: id: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2094): warning C4101: row: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2093): warning C4101: res: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2191): warning C4101: row: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2190): warning C4101: res: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2275): warning C4101: p: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2274): warning C4101: row: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2273): warning C4101: res: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2275): warning C4101: s: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2363): warning C4101: row: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2362): warning C4101: res: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2441): warning C4101: row: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2440): warning C4101: res: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2455): warning C4101: sid: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2480): warning C4101: row: неиспользованная локальная переменная
-     1>c:\users\alfa\documents\visual studio 2015\projects\decanat\decanat\MyForm.h(2479): warning C4101: res: неиспользованная локальная переменная
-       Link:
-         C:\Program Files\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alfa\documents\visual studio 2015\Projects\Decanat\Debug\Decanat.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Decanat.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Alfa\documents\visual studio 2015\Projects\Decanat\Debug\Decanat.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"Main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\MyForm.obj
+﻿Сборка начата 04.11.2015 13:19:35.
+     1>Проект "C:\Users\Alfa\Documents\Visual Studio 2015\Projects\Decanat\Decanat\Decanat.vcxproj" в узле 2 (целевые объекты Build).
+     1>Link:
+         C:\Program Files\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alfa\Documents\Visual Studio 2015\Projects\Decanat\Debug\Decanat.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Decanat.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Alfa\Documents\Visual Studio 2015\Projects\Decanat\Debug\Decanat.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"Main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\MyForm.obj
          "Debug\.NETFramework,Version=v4.5.2.AssemblyAttributes.obj"
-         Decanat.vcxproj -> C:\Users\Alfa\documents\visual studio 2015\Projects\Decanat\Debug\Decanat.exe
-     1>Сборка проекта "C:\Users\Alfa\documents\visual studio 2015\Projects\Decanat\Decanat\Decanat.vcxproj" завершена (целевые объекты Build).
+         Decanat.vcxproj -> C:\Users\Alfa\Documents\Visual Studio 2015\Projects\Decanat\Debug\Decanat.exe
+     1>Сборка проекта "C:\Users\Alfa\Documents\Visual Studio 2015\Projects\Decanat\Decanat\Decanat.vcxproj" завершена (целевые объекты Build).
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.56
+Затраченное время: 00:00:00.59
