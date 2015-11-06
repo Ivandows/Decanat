@@ -28,7 +28,7 @@ namespace Decanat {
 	private: System::Windows::Forms::ComboBox^  comboBox9;
 	public:
 	private: System::Windows::Forms::ComboBox^  comboBox8;
-	private: System::Windows::Forms::Button^  button13;
+
 	private: System::Windows::Forms::ToolStripStatusLabel^  toolStripStatusLabel1;
 	private: System::Windows::Forms::TabPage^  tabPage5;
 	private: System::Windows::Forms::GroupBox^  groupBox9;
@@ -84,6 +84,7 @@ namespace Decanat {
 	private: System::Windows::Forms::Label^  label40;
 	private: System::Windows::Forms::ComboBox^  comboBox14;
 	private: System::Windows::Forms::ComboBox^  comboBox15;
+
 	public:
 	public:
 		int SelectedStudent = -1;
@@ -238,6 +239,7 @@ public: System::Windows::Forms::Label^  label27;
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::TreeNode^  treeNode1 = (gcnew System::Windows::Forms::TreeNode(L"Предметы"));
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->label35 = (gcnew System::Windows::Forms::Label());
@@ -247,7 +249,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->dateTimePicker3 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->comboBox9 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox8 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
@@ -449,7 +450,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox1->Controls->Add(this->dateTimePicker3);
 			this->groupBox1->Controls->Add(this->dateTimePicker1);
 			this->groupBox1->Controls->Add(this->dateTimePicker2);
-			this->groupBox1->Controls->Add(this->button13);
 			this->groupBox1->Controls->Add(this->comboBox9);
 			this->groupBox1->Controls->Add(this->comboBox8);
 			this->groupBox1->Controls->Add(this->comboBox4);
@@ -511,17 +511,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->dateTimePicker2->Name = L"dateTimePicker2";
 			this->dateTimePicker2->Size = System::Drawing::Size(180, 20);
 			this->dateTimePicker2->TabIndex = 20;
-			// 
-			// button13
-			// 
-			this->button13->Location = System::Drawing::Point(317, 490);
-			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(75, 23);
-			this->button13->TabIndex = 0;
-			this->button13->TabStop = false;
-			this->button13->Text = L"button13";
-			this->button13->UseVisualStyleBackColor = true;
-			this->button13->Click += gcnew System::EventHandler(this, &MyForm::button13_Click);
 			// 
 			// comboBox9
 			// 
@@ -1696,6 +1685,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->tabControl1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
 			this->Name = L"MyForm";
@@ -1808,7 +1798,7 @@ public: DateTime  ReformatDate(char *c) {
 public: int GetProfileId(ComboBox ^c) {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
-	String ^s, ^l;
+	String ^s;
 	int pid = -1;
 
 	s = gcnew String("");
@@ -1826,7 +1816,7 @@ public: int GetProfileId(ComboBox ^c) {
 public: int GetDirectionId(ComboBox ^c) {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
-	String ^s, ^l;
+	String ^s;
 	int id = -1;
 
 	s = gcnew String("");
@@ -1868,7 +1858,7 @@ public: void LoadTree1() {
 	MYSQL_RES *res,*res2;
 	MYSQL_ROW row,row2;
 	String ^s,^s2 ;
-	int id;
+
 
 	s2 = gcnew String("");
 	this->treeView1->Nodes->Clear();
@@ -2135,7 +2125,7 @@ public: void LoadLessons4() {
 public: void AddLessons3() {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
-	String ^s, ^l;	
+	String ^s;	
 	int pid = -1;
 	int id = this->SelectedStudent;
 	if (id == -1) { return; }	
@@ -2159,8 +2149,6 @@ public: void AddLessons3() {
 	D->mydb->RawSQL(StrToChar(s));
 }
 public: void AddOneLesson4(int pid) {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
 	String ^s;	
 
 	s = gcnew String("");	
@@ -2256,8 +2244,6 @@ public: void UpdateStudent1() {
 	D->mydb->RawSQL(StrToChar(s));
 }
 public: void UpdateOneStudent2(int id) {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
 	String ^s;
 	bool flag = false;
 
@@ -2292,9 +2278,7 @@ public: void UpdateStudents2() {
 		UpdateOneStudent2(id);
 	}	
 }
-public: void UpdateMark3() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
+public: void UpdateMark3() {	
 	String ^s;
 	s = gcnew String("");
 
@@ -2308,9 +2292,7 @@ public: void UpdateMark3() {
 	s = "update marks set value=" + m + " where id=" + lid;
 	D->mydb->RawSQL(StrToChar(s));
 }
-public: void AddMark3() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
+public: void AddMark3() {	
 	String ^s;
 	s = gcnew String("");
 
@@ -2378,10 +2360,8 @@ public: void AddStudent1() {
 	D->mydb->RawSQL(StrToChar(s));
 
 }
-public: void AddDirection5() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
-	String ^s, ^d, ^p,^Code,^Name;
+public: void AddDirection5() {	
+	String  ^d, ^Code,^Name;
 	Code= this->textBox27->Text ;
 	Name = this->textBox4->Text;
 
@@ -2467,9 +2447,7 @@ public: void DeleteDirection5() {
 	Mess(d);
 	D->mydb->RawSQL(StrToChar(d));
 }
-public: void DeleteLesson4() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
+public: void DeleteLesson4() {		
 	String ^s;
 	int id = 0;
 	s = gcnew String("");
@@ -2481,9 +2459,7 @@ public: void DeleteLesson4() {
 	s = "delete from Lessons where id="+id;
 	D->mydb->RawSQL(StrToChar(s));
 }
-public: void DeleteLesson3() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
+public: void DeleteLesson3() {	
 	String ^s;	
 	s = gcnew String("");
 
@@ -2618,9 +2594,7 @@ public: void SelectedLesson4(int id) {
 		this->textBox23->Text= gcnew String(row[1]);		
 	}
 }
-public: void AddOrder1() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
+public: void AddOrder1() {	
 	String ^s = gcnew String("");
 	if (this->SelectedStudent == -1) { return; }
 	s = "insert into orders (studentID,number,datta,about) Values (" +
@@ -2634,7 +2608,7 @@ public: void AddOrder1() {
 public: void LoadOrder1() {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
-	String ^s,^Id,^sid,^number,^data, ^about;
+	String ^s,^Id,^number,^data, ^about;
 	int id=this->SelectedStudent;
 	
 	this->treeView7->Nodes->Clear();
@@ -2657,9 +2631,7 @@ public: void LoadOrder1() {
 		this->treeView7->Nodes->Add(n1);		
 	}
 }
-public: void DeleteOrder1() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
+public: void DeleteOrder1() {		
 	String ^s = gcnew String("");
 	
 	if (this->SelectedStudent == -1) { return; }
@@ -2717,6 +2689,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	D = new Decan();
+	if (D->mydb->Exit) { this->Close(); return; }
 	LoadDirections1();
 }
 private: System::Void tabControl1_EnabledChanged(System::Object^  sender, System::EventArgs^  e) {
