@@ -5,6 +5,7 @@ ref class MyForm;
 #include <stdlib.h>
 #include <stdio.h>
 #include "Header.h"
+#include <windows.h>
 namespace Decanat {
 
 	using namespace System;
@@ -84,6 +85,12 @@ namespace Decanat {
 	private: System::Windows::Forms::Label^  label40;
 	private: System::Windows::Forms::ComboBox^  comboBox14;
 	private: System::Windows::Forms::ComboBox^  comboBox15;
+	private: System::Windows::Forms::TabPage^  tabPage6;
+	private: System::Windows::Forms::GroupBox^  groupBox10;
+	private: System::Windows::Forms::Button^  button13;
+	private: System::Windows::Forms::ComboBox^  comboBox16;
+	private: System::Windows::Forms::Label^  label41;
+	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
 
 	public:
 	public:
@@ -362,6 +369,11 @@ public: System::Windows::Forms::Label^  label27;
 			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->button14 = (gcnew System::Windows::Forms::Button());
 			this->listBox2 = (gcnew System::Windows::Forms::ListBox());
+			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
+			this->groupBox10 = (gcnew System::Windows::Forms::GroupBox());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->comboBox16 = (gcnew System::Windows::Forms::ComboBox());
+			this->label41 = (gcnew System::Windows::Forms::Label());
 			this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
 			this->toolStripStatusLabel1 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
@@ -371,6 +383,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->íàñòðîéêèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ïîìîùüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îÏðîãðàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -386,6 +399,8 @@ public: System::Windows::Forms::Label^  label27;
 			this->tabPage5->SuspendLayout();
 			this->groupBox9->SuspendLayout();
 			this->groupBox8->SuspendLayout();
+			this->tabPage6->SuspendLayout();
+			this->groupBox10->SuspendLayout();
 			this->statusStrip1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -397,6 +412,7 @@ public: System::Windows::Forms::Label^  label27;
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Controls->Add(this->tabPage5);
+			this->tabControl1->Controls->Add(this->tabPage6);
 			this->tabControl1->Location = System::Drawing::Point(0, 35);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -1451,7 +1467,6 @@ public: System::Windows::Forms::Label^  label27;
 			this->tabPage5->Size = System::Drawing::Size(888, 535);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Íàïðàâëåíèÿ";
-			this->tabPage5->Click += gcnew System::EventHandler(this, &MyForm::tabPage5_Click);
 			this->tabPage5->Enter += gcnew System::EventHandler(this, &MyForm::tabPage5_Enter);
 			// 
 			// groupBox9
@@ -1609,6 +1624,58 @@ public: System::Windows::Forms::Label^  label27;
 			this->listBox2->Size = System::Drawing::Size(308, 368);
 			this->listBox2->TabIndex = 0;
 			// 
+			// tabPage6
+			// 
+			this->tabPage6->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->tabPage6->Controls->Add(this->groupBox10);
+			this->tabPage6->Location = System::Drawing::Point(4, 22);
+			this->tabPage6->Name = L"tabPage6";
+			this->tabPage6->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage6->Size = System::Drawing::Size(888, 535);
+			this->tabPage6->TabIndex = 5;
+			this->tabPage6->Text = L"Ñòàòèñòèêà";
+			this->tabPage6->Enter += gcnew System::EventHandler(this, &MyForm::tabPage6_Enter);
+			// 
+			// groupBox10
+			// 
+			this->groupBox10->Controls->Add(this->button13);
+			this->groupBox10->Controls->Add(this->comboBox16);
+			this->groupBox10->Controls->Add(this->label41);
+			this->groupBox10->Location = System::Drawing::Point(8, 6);
+			this->groupBox10->Name = L"groupBox10";
+			this->groupBox10->Size = System::Drawing::Size(872, 523);
+			this->groupBox10->TabIndex = 0;
+			this->groupBox10->TabStop = false;
+			this->groupBox10->Text = L"Ñòàòèñòèêà äëÿ îò÷åòîâ";
+			this->groupBox10->Enter += gcnew System::EventHandler(this, &MyForm::groupBox10_Enter);
+			// 
+			// button13
+			// 
+			this->button13->Location = System::Drawing::Point(387, 20);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(75, 23);
+			this->button13->TabIndex = 2;
+			this->button13->Text = L"Âûïîëíèòü";
+			this->button13->UseVisualStyleBackColor = true;
+			this->button13->Click += gcnew System::EventHandler(this, &MyForm::button13_Click);
+			// 
+			// comboBox16
+			// 
+			this->comboBox16->FormattingEnabled = true;
+			this->comboBox16->Location = System::Drawing::Point(243, 22);
+			this->comboBox16->Name = L"comboBox16";
+			this->comboBox16->Size = System::Drawing::Size(121, 21);
+			this->comboBox16->TabIndex = 1;
+			// 
+			// label41
+			// 
+			this->label41->AutoSize = true;
+			this->label41->Location = System::Drawing::Point(193, 25);
+			this->label41->Name = L"label41";
+			this->label41->Size = System::Drawing::Size(44, 13);
+			this->label41->TabIndex = 0;
+			this->label41->Text = L"Çàïðîñ";
+			// 
 			// statusStrip1
 			// 
 			this->statusStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripStatusLabel1 });
@@ -1676,6 +1743,10 @@ public: System::Windows::Forms::Label^  label27;
 			this->îÏðîãðàììåToolStripMenuItem->Size = System::Drawing::Size(149, 22);
 			this->îÏðîãðàììåToolStripMenuItem->Text = L"Î ïðîãðàììå";
 			// 
+			// saveFileDialog1
+			// 
+			this->saveFileDialog1->DefaultExt = L"csv";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1719,6 +1790,9 @@ public: System::Windows::Forms::Label^  label27;
 			this->groupBox9->PerformLayout();
 			this->groupBox8->ResumeLayout(false);
 			this->groupBox8->PerformLayout();
+			this->tabPage6->ResumeLayout(false);
+			this->groupBox10->ResumeLayout(false);
+			this->groupBox10->PerformLayout();
 			this->statusStrip1->ResumeLayout(false);
 			this->statusStrip1->PerformLayout();
 			this->menuStrip1->ResumeLayout(false);
@@ -1833,6 +1907,15 @@ public: int GetDirectionId(ComboBox ^c) {
 
 
 }
+public: void ClearCLRF(char *c) {
+	int i = 0;
+	while (c[i] != 0) {
+		if ((c[i] == 13) || (c[i] == 10)) {
+			c[i] = (char)0;
+		}
+		i ++;
+	}
+}
 //------------------------
 public: void ClearFields4() {
 	this->treeView4->Nodes->Clear();
@@ -1854,73 +1937,16 @@ public: void ClearFields3(int i) {
 	this->comboBox15->SelectedIndex = -1;
 	if (i == 0) { this->treeView6->Nodes->Clear(); }
 }
-public: void LoadTree1() {
-	MYSQL_RES *res,*res2;
-	MYSQL_ROW row,row2;
-	String ^s,^s2 ;
-
-
-	s2 = gcnew String("");
-	this->treeView1->Nodes->Clear();
-
-	s2 = "select distinct groupe from Students where fio Like '%"+this->textBox9->Text+"%' order by groupe";
-	D->mydb->RawSQL(StrToChar(s2));
-	res = D->mydb->res;
-
-	while ((row = mysql_fetch_row(res))) {
-		s = gcnew String(row[0]);
-		TreeNode ^n1 = gcnew TreeNode(s);
-		n1->Tag = -1;
-		this->treeView1->Nodes->Add(n1);
-			s2 = "select id, fio, groupe from Students where (groupe='" + s + "') and (fio Like '%" + this->textBox9->Text + "%') order by fio";
-			D->mydb->RawSQL(StrToChar(s2));
-			res2 = D->mydb->res;
-			
-			while ((row2 = mysql_fetch_row(res2))) {
-				TreeNode ^n2 = gcnew TreeNode(gcnew String(row2[1]));
-				n2->Tag = System::Convert::ToInt32(gcnew String(row2[0]));
-				n1->Nodes->Add(n2);
-			}
-	}	
-}
-public: void LoadTree2() {
-	MYSQL_RES *res, *res2;
-	MYSQL_ROW row, row2;
-	String ^s, ^s2;	
-
-	s2 = gcnew String("");
-	this->treeView2->Nodes->Clear();
-
-	s2 = "select distinct groupe from Students where fio Like '%" + this->textBox12->Text + "%' order by groupe";
-	D->mydb->RawSQL(StrToChar(s2));
-	res = D->mydb->res;
-
-	while ((row = mysql_fetch_row(res))) {
-		s = gcnew String(row[0]);
-		TreeNode ^n1 = gcnew TreeNode(s);
-		n1->Tag = -1;
-		this->treeView2->Nodes->Add(n1);
-		s2 = "select id, fio, groupe from Students where (groupe='" + s + "') and (fio Like '%" + this->textBox12->Text + "%') order by fio";
-		D->mydb->RawSQL(StrToChar(s2));
-		res2 = D->mydb->res;
-
-		while ((row2 = mysql_fetch_row(res2))) {
-			TreeNode ^n2 = gcnew TreeNode(gcnew String(row2[1]));
-			n2->Tag = System::Convert::ToInt32(gcnew String(row2[0]));
-			n1->Nodes->Add(n2);
-		}
-	}
-
-}
-public: void LoadTree3() {
+public: void LoadTree(TreeView ^treeView,TextBox ^ textBox) {
 	MYSQL_RES *res, *res2;
 	MYSQL_ROW row, row2;
 	String ^s, ^s2;
 
-	s2 = gcnew String("");
-	this->treeView5->Nodes->Clear();
 
-	s2 = "select distinct groupe from Students where fio Like '%" + this->textBox24->Text + "%' order by groupe";
+	s2 = gcnew String("");
+	treeView->Nodes->Clear();
+
+	s2 = "select distinct groupe from Students where fio Like '%" + textBox->Text + "%' order by groupe";
 	D->mydb->RawSQL(StrToChar(s2));
 	res = D->mydb->res;
 
@@ -1928,8 +1954,8 @@ public: void LoadTree3() {
 		s = gcnew String(row[0]);
 		TreeNode ^n1 = gcnew TreeNode(s);
 		n1->Tag = -1;
-		this->treeView5->Nodes->Add(n1);
-		s2 = "select id, fio, groupe from Students where (groupe='" + s + "') and (fio Like '%" + this->textBox24->Text + "%') order by fio";
+		treeView->Nodes->Add(n1);
+		s2 = "select id, fio, groupe from Students where (groupe='" + s + "') and (fio Like '%" + textBox->Text + "%') order by fio";
 		D->mydb->RawSQL(StrToChar(s2));
 		res2 = D->mydb->res;
 
@@ -1939,41 +1965,17 @@ public: void LoadTree3() {
 			n1->Nodes->Add(n2);
 		}
 	}
-
-
-
-
 }
-public: void LoadProfiles1(/*Çàãðóæàåò ïðîôèëè â âûïàäàþùèé ñïèñîê*/) {
+public: void LoadProfiles(ComboBox ^comboBoxD, ComboBox ^comboBoxP){
 	MYSQL_RES *res;
 	MYSQL_ROW row;
-	String ^s,^d;
+	String ^s, ^d;
 	
-	this->comboBox8->Items->Clear();
-	this->comboBox8->Text = "";	
-	if (this->comboBox9->SelectedIndex == -1) return;
-	s = this->comboBox9->SelectedItem->ToString();
-
-
-	d = gcnew String("select P.name, D.id, D.codename, P.directId from Directions as D, Profiles as P where D.codename='" + s + "' and P.directId=D.id");
-
-	D->mydb->RawSQL(StrToChar(d));
-	res = D->mydb->res;
-	while ((row = mysql_fetch_row(res))) {
-		s = gcnew String(row[0]);
-		this->comboBox8->Items->Add(s);
-	}
-}
-public: void LoadProfiles2() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
-	String ^s, ^d;
-
-	this->comboBox13->Items->Clear();
-	this->comboBox13->Text = "";
-	if (this->comboBox12->SelectedIndex == -1) return;
-	s = this->comboBox12->SelectedItem->ToString();
-
+	comboBoxP->Items->Clear();
+	comboBoxP->Text = "";
+	
+	if (comboBoxD->SelectedIndex == -1) return;
+	s = comboBoxD->SelectedItem->ToString();
 
 	d = gcnew String("select P.name, D.id, D.codename, P.directId from Directions as D, Profiles as P where D.codename='" + s + "' and P.directId=D.id");
 
@@ -1981,84 +1983,23 @@ public: void LoadProfiles2() {
 	res = D->mydb->res;
 	while ((row = mysql_fetch_row(res))) {
 		s = gcnew String(row[0]);
-		this->comboBox13->Items->Add(s);
-	}
-
-
-
-}
-public: void LoadProfiles4(/*Çàãðóæàåò ïðîôèëè â âûïàäàþùèé ñïèñîê*/) {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
-	String ^s, ^d;
-
-	this->comboBox7->Items->Clear();
-	this->comboBox7->Text = "";
-	ClearFields4();
-	if (this->comboBox6->SelectedIndex == -1) return;
-	s = this->comboBox6->SelectedItem->ToString();
-
-
-	d = gcnew String("select P.name, D.id, D.codename, P.directId from Directions as D, Profiles as P where D.codename='" + s + "' and P.directId=D.id");
-
-	D->mydb->RawSQL(StrToChar(d));
-	res = D->mydb->res;
-	while ((row = mysql_fetch_row(res))) {
-		s = gcnew String(row[0]);
-		this->comboBox7->Items->Add(s);
+		comboBoxP->Items->Add(s);
 	}
 }
-public: void LoadDirections1() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
-	String ^s,^id;
-
-	D->mydb->RawSQL("select id, codename from Directions");
-	res = D->mydb->res;
-
-	this->comboBox9->Items->Clear();
-	this->comboBox9->Text = "";
-	while ((row = mysql_fetch_row(res))) {
-		id = gcnew String(row[0]);
-			s = gcnew String(row[1]);			
-			this->comboBox9->Items->Add(s);					
-	}
-}
-public: void LoadDirections2() {
+public: void LoadDirections(ComboBox ^comboBox) {
 	MYSQL_RES *res;
 	MYSQL_ROW row;
 	String ^s, ^id;
 
 	D->mydb->RawSQL("select id, codename from Directions");
 	res = D->mydb->res;
-
-	this->comboBox12->Items->Clear();
-	this->comboBox12->Text = "";
-	while ((row = mysql_fetch_row(res))) {
-		id = gcnew String(row[0]);
-		s = gcnew String(row[1]);
-		this->comboBox12->Items->Add(s);
-	}
-
-
-
-}
-public: void LoadDirections4() {
-	MYSQL_RES *res;
-	MYSQL_ROW row;
-	String ^s, ^id;
-
-	D->mydb->RawSQL("select id, codename from Directions");
-	res = D->mydb->res;
-
 	
-	ClearFields4();
-	this->comboBox6->Items->Clear();
-	this->comboBox6->Text = "";
+	comboBox->Items->Clear();
+	comboBox->Text = "";
 	while ((row = mysql_fetch_row(res))) {
 		id = gcnew String(row[0]);
 		s = gcnew String(row[1]);
-		this->comboBox6->Items->Add(s);
+		comboBox->Items->Add(s);
 	}
 }
 public: void LoadProfiles5(/*Çàãðóæàåò ïðîôèëè â âûïàäàþùèé ñïèñîê*/) {
@@ -2487,7 +2428,7 @@ public: void SelectStudent1(int id) {
 		this->dateTimePicker1->Value = ReformatDate(row[1]);//birth
 		this->comboBox1->SelectedIndex = System::Convert::ToInt32(gcnew String(row[2])); //sex
 		this->comboBox9->SelectedIndex = GetDirectionById(comboBox9, gcnew String(row[3]));// direction
-		LoadProfiles1();
+		LoadProfiles(this->comboBox9,this->comboBox8);
 		this->comboBox8->SelectedIndex = GetProfileById(comboBox8, gcnew String(row[4]));//profile
 			this->dateTimePicker2->Value = ReformatDate(row[5]);//edustart
 			this->dateTimePicker3->Value = ReformatDate(row[6]); //edu stop
@@ -2641,26 +2582,92 @@ public: void DeleteOrder1() {
 	s = "delete from Orders where id="+id;
 	D->mydb->RawSQL(StrToChar(s));
 }
+public: void LoadStats6() {
+	char *s = new char[256];
+	String ^name, ^text,^s1;
+	char *p;
+	s1 = gcnew String("");
+	FILE *f = fopen("stats.ini", "rt");
+	if (f == NULL) { return; }
+
+	D->mydb->RawSQL("delete from Stat");
+	this->comboBox16->Items->Clear();
+	while (!feof(f)) {
+		fgets(s, 256, f); ClearCLRF(s);
+		name = gcnew String(s);
+		this->comboBox16->Items->Add(name);
+
+		fgets(s, 256, f); ClearCLRF(s);
+
+		text = gcnew String(s);
+		s1 = "insert into Stat (name,text)Values('" +
+			name + "','"+
+			text+"')";
+		D->mydb->RawSQL(StrToChar(s1));
+	}
+}
+public: void StatRequest6() {
+	MYSQL_RES *res,*res1;
+	MYSQL_ROW row,row1;
+	MYSQL_FIELD *row3;
+	String ^s;
+	if (!this->comboBox16->SelectedItem) { return; }
+
+	s = gcnew String("");
+	s = "select text from Stat where name='" +this->comboBox16->SelectedItem->ToString()+"'";
+	
+
+	D->mydb->RawSQL(StrToChar(s));
+	res = D->mydb->res;
+
+	if (row = mysql_fetch_row(res)) {
+		D->mydb->RawSQL(row[0]);
+		res1 = D->mydb->res;
+
+		FILE *f;
+		if (this->saveFileDialog1->ShowDialog() != ::DialogResult::OK) { return; }
+		f = fopen(StrToChar(this->saveFileDialog1->FileName), "w");
+		if (f == NULL) { return; }
+
+		if (row3 = mysql_fetch_field(res1)) {
+
+			for (int i = 0; i < mysql_num_fields(res1); i++) {
+				fprintf(f, "%s;", row3[i].name);
+			}
+			fprintf(f, "\n");
+		}
+		while ((row1 = mysql_fetch_row(res1))) {
+			
+			for (int i = 0; i < mysql_num_fields(res1); i++) {
+				fprintf(f, "%s;",row1[i]);						
+			}
+			fprintf(f,"\n");		
+		}
+		fclose(f);
+		Mess("Îò÷åò ñîçäàí");
+	}
+}
 //---------------------
 public: void Refresh0(){
 	switch (this->Vkladka) {
 	case 1: {
-		LoadDirections1();
-		LoadTree1();
+		LoadDirections(this->comboBox9);
+		LoadTree(this->treeView1,this->textBox9);
 		break; }
 	case 2: {
 		ClearFields2();
-		LoadDirections2();
-		LoadTree2();
+		LoadDirections(this->comboBox12);
+		LoadTree(this->treeView2, this->textBox12);
 		break; 
 	}
 	case 3: {
 		ClearFields3(0);
-		LoadTree3();
+		LoadTree(this->treeView5, this->textBox24);
 		break; 
 	}
 	case 4: {
-		LoadDirections4();
+		ClearFields4();
+		LoadDirections(this->comboBox6);
 		break; 
 	}
 	case 5: {
@@ -2668,6 +2675,9 @@ public: void Refresh0(){
 		LoadProfiles5();		
 		break; 
 	}	
+	case 6:
+		LoadStats6();
+		break;
 	};
 }
 public: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
@@ -2685,12 +2695,12 @@ public: System::Void MyForm_Activated(System::Object^  sender, System::EventArgs
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	UpdateStudent1();
-	LoadTree1();
+	LoadTree(this->treeView1,this->textBox9);
 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	D = new Decan();
 	if (D->mydb->Exit) { this->Close(); return; }
-	LoadDirections1();
+	LoadDirections(this->comboBox9);
 }
 private: System::Void tabControl1_EnabledChanged(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -2715,16 +2725,13 @@ private: System::Void tabPage5_Enter(System::Object^  sender, System::EventArgs^
 	Refresh0();
 }
 private: System::Void comboBox9_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-	LoadProfiles1();
+	LoadProfiles(this->comboBox9, this->comboBox8);
 }
-private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
 
-}
-private: System::Void tabPage5_Click(System::Object^  sender, System::EventArgs^  e) {
-}
+
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 	AddStudent1();
-	LoadTree1();
+	LoadTree(this->treeView1, this->textBox9);
 
 }
 private: System::Void groupBox2_Enter(System::Object^  sender, System::EventArgs^  e) {
@@ -2768,13 +2775,14 @@ private: System::Void treeView7_AfterSelect(System::Object^  sender, System::Win
 	
 }
 private: System::Void textBox9_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	LoadTree1();
+	LoadTree(this->treeView1, this->textBox9);;
 }
 private: System::Void comboBox7_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {	
 	LoadLessons4();
 }
 private: System::Void comboBox6_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-	LoadProfiles4();
+	ClearFields4();
+	LoadProfiles(this->comboBox6, this->comboBox7);
 }
 private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
 	AddLesson4();
@@ -2789,7 +2797,7 @@ private: System::Void treeView4_AfterSelect(System::Object^  sender, System::Win
 	SelectedLesson4(id);
 }
 private: System::Void textBox12_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	LoadTree2();
+	LoadTree(this->treeView2, this->textBox12);
 }
 private: System::Void treeView2_NodeMouseDoubleClick(System::Object^  sender, System::Windows::Forms::TreeNodeMouseClickEventArgs^  e) {	
 	
@@ -2807,7 +2815,7 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 	Refresh0();
 }
 private: System::Void comboBox12_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-	LoadProfiles2();
+	LoadProfiles(this->comboBox12, this->comboBox13);
 }
 private: System::Void treeView1_NodeMouseClick(System::Object^  sender, System::Windows::Forms::TreeNodeMouseClickEventArgs^  e) {
 }
@@ -2853,6 +2861,15 @@ private: System::Void treeView6_AfterSelect(System::Object^  sender, System::Win
 	if (!this->treeView6->SelectedNode)return;
 	int id = System::Convert::ToInt32(this->treeView6->SelectedNode->Tag);	
 	SelectedLesson3(id);	
+}
+private: System::Void groupBox10_Enter(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void tabPage6_Enter(System::Object^  sender, System::EventArgs^  e) {
+	this->Vkladka = 6;
+	Refresh0();
+}
+private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
+	StatRequest6();
 }
 };
 
